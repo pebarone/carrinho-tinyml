@@ -63,6 +63,7 @@ O ambiente `.venv` é usado pelas ferramentas Python; a compilação e o upload 
 
 ## Guias
 
+- [Handoff para coleta e treinamento físicos — próxima sessão](cp2/docs/HANDOFF_TREINAMENTO_FISICO.md)
 - [Hardware e ligação segura](cp2/docs/hardware.md)
 - [Coleta e preparação de dados](cp2/docs/coleta.md)
 - [Treinamento e integração do modelo](cp2/docs/treinamento.md)
