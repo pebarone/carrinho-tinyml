@@ -14,6 +14,14 @@ e [o mapa de ligação](LIGACAO_PLACA_FISICA.md). SSID/senha estão apenas em
 `wifi_config.h`, ignorado pelo Git. O próximo passo é montar/testar sensor e
 ponte, depois coletar os CSVs reais e seguir o treinamento abaixo.
 
+**Montagem visual:** [HTML interativo](montagem.html) e
+[Wokwi ilustrado](https://wokwi.com/projects/477883916754720769). O powerbank
+USB resolve a alimentação embarcada, mas o firmware inicia desarmado e só
+aceita `A`/`S` pelo serial. Antes de operar sem PC, implementar uma forma
+de armar/parar no próprio carrinho ou pela rede, preservando os intertravamentos.
+O divisor resistivo não funcionou na simulação Wokwi e os chips customizados
+não tiveram validação dinâmica; usar o projeto digital original para TinyML.
+
 ## Objetivo da próxima sessão
 
 Completar e documentar o ciclo **sensor físico → coleta CSV → Edge Impulse →

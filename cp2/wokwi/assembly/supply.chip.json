@@ -1,0 +1,5 @@
+{
+  "name": "Visual Supply",
+  "author": "CP2",
+  "pins": ["PLUS", "GND"]
+}

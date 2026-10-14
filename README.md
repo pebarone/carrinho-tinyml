@@ -75,6 +75,8 @@ não aciona motores nem substitui a coleta CSV e o treinamento no Edge Impulse.
 
 ## Guias
 
+- [Guia visual HTML — cada fio e ordem de montagem](cp2/docs/montagem.html)
+- [Montagem ilustrada no Wokwi](https://wokwi.com/projects/477883916754720769)
 - [Handoff para coleta e treinamento físicos — próxima sessão](cp2/docs/HANDOFF_TREINAMENTO_FISICO.md)
 - [Mapa de ligação da placa física](cp2/docs/LIGACAO_PLACA_FISICA.md)
 - [Hardware e ligação segura](cp2/docs/hardware.md)

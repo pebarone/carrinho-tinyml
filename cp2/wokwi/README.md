@@ -1,5 +1,12 @@
 # Simulação do carrinho TinyML
 
+Para visualizar a montagem física completa, incluindo resistores, ponte H,
+motores, pilhas e powerbank, abra [a montagem ilustrada](assembly/README.md)
+e [o guia HTML](../docs/montagem.html). Ela está em um projeto Wokwi separado:
+o divisor não foi validado no motor de simulação analógica, e o comportamento
+dinâmico dos chips customizados também não foi validado. O projeto original
+abaixo mantém o diagrama digital usado nos testes anteriores.
+
 **Estado atual:** coleta e compilação TinyML foram verificadas. Em execução manual no navegador Wokwi, o firmware classificou 100 cm como `livre` (0,99609; ação 2; PWM 160), 15 cm como `bloqueado` (0,99609; ação 0), e a transição de 80,7 para 40,3 cm como `aproximando` (0,99609; ação 1; PWM 110). Uma leitura estática ambígua a 40,3 cm ficou abaixo da confiança mínima 0,80 e acionou a parada segura. A emergência a 5 cm manteve os sinais dos motores desligados mesmo após uma leitura de movimento. As inferências levaram 2–3 ms. Os LEDs representam ENA/ENB simulados; nada disso valida o carrinho físico ou aprova os cenários CLI.
 
 O diagrama usa o ESP32 DevKit-C V4 e o HC-SR04 com TRIG no GPIO 23 e ECHO no GPIO 22. A distância inicial é 100 cm. Os nomes de pino numéricos seguem o [modelo do DevKit-C V4 no Wokwi](https://github.com/wokwi/wokwi-boards/blob/main/boards/esp32-devkit-c-v4/board.json). O analisador lógico registra TRIG, ECHO e os seis sinais que iriam para o L298N: ENA/GPIO 25, IN1/GPIO 26, IN2/GPIO 27, ENB/GPIO 33, IN3/GPIO 32 e IN4/GPIO 21.

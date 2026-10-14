@@ -3,6 +3,9 @@
 Mapa correspondente ao firmware `cp2/firmware/carrinho/`. Os números abaixo
 são **GPIOs escritos na placa**, não a posição do pino no conector.
 
+Veja também [o guia HTML interativo](montagem.html) e
+[a montagem ilustrada no Wokwi](https://wokwi.com/projects/477883916754720769).
+
 ## Sensor HC-SR04
 
 | Pino do sensor | Ligação |
@@ -94,6 +97,11 @@ em [hardware.md](hardware.md).
 O modo de inferência inicia **desarmado**. Pelo monitor serial da COM da placa,
 a 115200 baud, envie `A` para armar e `S` para parar/desarmar. Leitura inválida,
 distância abaixo de 8 cm ou confiança abaixo de 0,80 impedem movimento.
+
+O powerbank resolve a alimentação sem fio, mas trocar o USB do PC pelo powerbank
+reinicia a placa desarmada. O firmware atual ainda exige serial para armar;
+antes de rodar sem PC, é necessário adicionar uma forma de armação/parada
+no carrinho ou pela rede. A consulta HTTP atual não controla motores.
 
 | Classe com confiança suficiente | Ação |
 | --- | --- |

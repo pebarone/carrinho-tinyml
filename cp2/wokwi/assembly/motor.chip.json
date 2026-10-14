@@ -1,0 +1,9 @@
+{
+  "name": "DC Motor",
+  "author": "CP2",
+  "pins": ["A", "B"],
+  "display": {
+    "width": 64,
+    "height": 64
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "url": "https://wokwi.com/projects/477883916754720769",
+  "purpose": "Physical wiring visualization",
+  "original_simulation_url": "https://wokwi.com/projects/477821599079365633",
+  "sensor_divider": { "resistor_ohms": 330, "series_upper_count": 2, "series_lower_count": 3, "nominal_output_volts": 3.0 },
+  "sources": [ "USB powerbank: ESP32, sensor and L298N logic", "4 AA cells: L298N motor supply" ],
+  "physical_car_simulated": false,
+  "custom_chip_runtime_verified": false,
+  "physical_wiring_verified": false,
+  "untethered_arming_supported_by_current_firmware": false
+}

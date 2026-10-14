@@ -1,0 +1,8 @@
+{
+  "name": "L298N",
+  "author": "CP2",
+  "pins": [
+    "ENA", "IN1", "IN2", "IN3", "IN4", "ENB", "GND",
+    "", "Vs12V", "5V", "OUT4", "OUT3", "OUT2", "OUT1"
+  ]
+}
