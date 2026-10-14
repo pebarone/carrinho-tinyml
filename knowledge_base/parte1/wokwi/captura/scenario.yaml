@@ -1,0 +1,14 @@
+name: "Captura LDR escuro e claro"
+version: 1
+author: "TinyML - Parte 1"
+steps:
+  - set-control:
+      part-id: ldr
+      control: lux
+      value: 1
+  - delay: 5000ms
+  - set-control:
+      part-id: ldr
+      control: lux
+      value: 1000
+  - delay: 5000ms

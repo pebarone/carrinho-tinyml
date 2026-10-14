@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "TinyML — Parte 1",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr",
+      "top": -20,
+      "left": -190,
+      "attrs": {
+        "lux": "1",
+        "rl10": "15",
+        "gamma": "0.6"
+      }
+    }
+  ],
+  "connections": [
+    [ "ldr:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ldr:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ldr:AO", "esp:VP", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,94 @@
+{
+  "status": "demonstracao local sintetica; nao e resultado do Edge Impulse",
+  "fonte_dados": "dados sinteticos deterministas gerados neste script; sem captura de hardware ou Wokwi",
+  "modelo": "Keras float32 com quantizador int8 local implementado neste script",
+  "exportacao_edge_impulse": {
+    "link_publico": null,
+    "print_classifier": null,
+    "biblioteca_arduino": null
+  },
+  "n_janelas": 200,
+  "n_brutas": 2000,
+  "adc_min": 318,
+  "adc_max": 3725,
+  "adc_medio": 1989.7305,
+  "ruido_medio_dentro_da_janela": 17.399739523930833,
+  "feature_min": 0.0873,
+  "feature_max": 0.8993,
+  "feature_escuro_min": 0.0873,
+  "feature_escuro_max": 0.3649,
+  "feature_escuro_media": 0.19862300000000002,
+  "feature_escuro_std": 0.07868448113192333,
+  "feature_claro_min": 0.6083,
+  "feature_claro_max": 0.8993,
+  "feature_claro_media": 0.773164,
+  "feature_claro_std": 0.083632939108942,
+  "adc_escuro_min": 357,
+  "adc_escuro_max": 1494,
+  "adc_claro_min": 2491,
+  "adc_claro_max": 3682,
+  "modelo_local_float32_val_accuracy": 1.0,
+  "modelo_local_float32_val_loss": 0.03114597126841545,
+  "modelo_local_quantizado_int8_val_accuracy": 1.0,
+  "modelo_local_quantizado_int8_val_loss": 0.031179982738638277,
+  "modelo_local_int8_vs_float_agreement": 1.0,
+  "modelo_local_confusion_matrix_val": [
+    [
+      20,
+      0
+    ],
+    [
+      0,
+      20
+    ]
+  ],
+  "val_size": 40,
+  "epochs": 20,
+  "learning_rate": 0.005,
+  "final_train_loss": 0.03373348340392113,
+  "tabela_lux_adc_estimada": [
+    {
+      "lux": 1,
+      "adc": 587.4,
+      "feature": 0.1434
+    },
+    {
+      "lux": 5,
+      "adc": 1250.9,
+      "feature": 0.3055
+    },
+    {
+      "lux": 10,
+      "adc": 1638.0,
+      "feature": 0.4
+    },
+    {
+      "lux": 14.1,
+      "adc": 1844.1,
+      "feature": 0.4503
+    },
+    {
+      "lux": 50,
+      "adc": 2606.5,
+      "feature": 0.6365
+    },
+    {
+      "lux": 100,
+      "adc": 2974.3,
+      "feature": 0.7263
+    },
+    {
+      "lux": 300,
+      "adc": 3427.1,
+      "feature": 0.8369
+    },
+    {
+      "lux": 1000,
+      "adc": 3740.9,
+      "feature": 0.9135
+    }
+  ],
+  "nota_tabela_lux_adc": "estimativa didatica idealizada; nao e calibracao do ADC nem medicao do sensor",
+  "limiar_lux_estimado": 14.07,
+  "limiar_feature": 0.45
+}
