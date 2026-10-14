@@ -1,0 +1,441 @@
+{
+  "version": 6,
+  "validation": {
+    "int8": {
+      "confusion_matrix": [
+        [
+          30,
+          0,
+          0
+        ],
+        [
+          0,
+          36,
+          0
+        ],
+        [
+          0,
+          0,
+          30
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 30
+        },
+        "1": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 36
+        },
+        "2": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 30
+        },
+        "accuracy": 1,
+        "macro avg": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 96
+        },
+        "weighted avg": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 96
+        }
+      },
+      "roc_auc": 1,
+      "loss": 0.0002451005595369078,
+      "support": 96,
+      "weighted_average": {
+        "precision": 1,
+        "recall": 1,
+        "f1-score": 1
+      },
+      "subgroup_metrics": {
+        "facetted": null,
+        "per_key": {
+          "class_name": {
+            "per_group": {
+              "aproximando": {
+                "confusion_matrix": [
+                  [
+                    30,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "classification_report": {
+                  "0": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  },
+                  "accuracy": 1,
+                  "macro avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  },
+                  "weighted avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  }
+                },
+                "roc_auc": null,
+                "loss": 0.0001304633107055102,
+                "support": 30,
+                "weighted_average": {
+                  "precision": 1,
+                  "recall": 1,
+                  "f1-score": 1
+                }
+              },
+              "bloqueado": {
+                "confusion_matrix": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    36,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "classification_report": {
+                  "1": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 36
+                  },
+                  "accuracy": 1,
+                  "macro avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 36
+                  },
+                  "weighted avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 36
+                  }
+                },
+                "roc_auc": null,
+                "loss": 0.00010871942558809169,
+                "support": 36,
+                "weighted_average": {
+                  "precision": 1,
+                  "recall": 1,
+                  "f1-score": 1
+                }
+              },
+              "livre": {
+                "confusion_matrix": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    30
+                  ]
+                ],
+                "classification_report": {
+                  "2": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  },
+                  "accuracy": 1,
+                  "macro avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  },
+                  "weighted avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  }
+                },
+                "roc_auc": null,
+                "loss": 0.0005233951691068848,
+                "support": 30,
+                "weighted_average": {
+                  "precision": 1,
+                  "recall": 1,
+                  "f1-score": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "class_names": [
+        "aproximando",
+        "bloqueado",
+        "livre"
+      ]
+    },
+    "float32": {
+      "confusion_matrix": [
+        [
+          30,
+          0,
+          0
+        ],
+        [
+          0,
+          36,
+          0
+        ],
+        [
+          0,
+          0,
+          30
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 30
+        },
+        "1": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 36
+        },
+        "2": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 30
+        },
+        "accuracy": 1,
+        "macro avg": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 96
+        },
+        "weighted avg": {
+          "precision": 1,
+          "recall": 1,
+          "f1-score": 1,
+          "support": 96
+        }
+      },
+      "roc_auc": 1,
+      "loss": 0.0006456008896617337,
+      "support": 96,
+      "weighted_average": {
+        "precision": 1,
+        "recall": 1,
+        "f1-score": 1
+      },
+      "subgroup_metrics": {
+        "facetted": null,
+        "per_key": {
+          "class_name": {
+            "per_group": {
+              "aproximando": {
+                "confusion_matrix": [
+                  [
+                    30,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "classification_report": {
+                  "0": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  },
+                  "accuracy": 1,
+                  "macro avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  },
+                  "weighted avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  }
+                },
+                "roc_auc": null,
+                "loss": 0.0005311206990549673,
+                "support": 30,
+                "weighted_average": {
+                  "precision": 1,
+                  "recall": 1,
+                  "f1-score": 1
+                }
+              },
+              "bloqueado": {
+                "confusion_matrix": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    36,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "classification_report": {
+                  "1": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 36
+                  },
+                  "accuracy": 1,
+                  "macro avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 36
+                  },
+                  "weighted avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 36
+                  }
+                },
+                "roc_auc": null,
+                "loss": 0.000732037948782137,
+                "support": 36,
+                "weighted_average": {
+                  "precision": 1,
+                  "recall": 1,
+                  "f1-score": 1
+                }
+              },
+              "livre": {
+                "confusion_matrix": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    30
+                  ]
+                ],
+                "classification_report": {
+                  "2": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  },
+                  "accuracy": 1,
+                  "macro avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  },
+                  "weighted avg": {
+                    "precision": 1,
+                    "recall": 1,
+                    "f1-score": 1,
+                    "support": 30
+                  }
+                },
+                "roc_auc": null,
+                "loss": 0.0006563566093239572,
+                "support": 30,
+                "weighted_average": {
+                  "precision": 1,
+                  "recall": 1,
+                  "f1-score": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "class_names": [
+        "aproximando",
+        "bloqueado",
+        "livre"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "project_id": 1139087,
+  "project_url": "https://studio.edgeimpulse.com/studio/1139087",
+  "origin": "synthetic",
+  "deployment": "Arduino library",
+  "engine": "EON Compiler",
+  "quantization": "int8",
+  "version": "1.0.1",
+  "zip": "edge-impulse-arduino-v1.zip",
+  "sha256": "a75afc6dd4720ecc02080ffa7a0dde3afe033b357c1542d9e52b8eeb7ae71c0e",
+  "header": "cp2-carrinho-ultrassom_inferencing.h",
+  "raw_input": "distance_cm",
+  "frequency_hz": 10,
+  "window_samples": 10,
+  "dsp_scale": 0.01,
+  "labels": ["aproximando", "bloqueado", "livre"],
+  "physical_validation": false
+}

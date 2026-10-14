@@ -9,3 +9,4 @@ cp2/model/library/
 *.bin
 *.map
 knowledge_base/parte1/wokwi/captura/sketch/build/
+cp2/wokwi/.runs/
