@@ -75,7 +75,11 @@ Se precisar de login, o usuário deve concluir a autenticação; não peça senh
 
 Confira o mapa em `config.h`: TRIG 23, ECHO 22, ENA 25, IN1 26, IN2 27,
 ENB 33, IN3 32 e IN4 21. O ECHO físico deve passar pelo divisor de tensão
-documentado; a ligação direta no diagrama Wokwi é somente virtual. Remova os
+documentado: o usuário tem resistores de 330 Ω, então use dois em série entre
+ECHO e GPIO 22 e três em série entre GPIO 22 e GND (cinco no total). O pino 5V
+da ESP32 alimentada pelo USB fornece VCC do sensor e 5V da lógica da ponte;
+as quatro pilhas alimentam somente Vs/12V da ponte. A ligação direta do ECHO
+no diagrama Wokwi é somente virtual. Remova os
 jumpers ENA/ENB do L298N para controlar PWM. Confira a alimentação de 5 V da
 lógica, o jumper 5V_EN e o terra comum conforme [hardware](hardware.md).
 Quatro pilhas e a queda do L298N não garantem alimentação adequada do ESP32;

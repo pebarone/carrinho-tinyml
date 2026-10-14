@@ -7,22 +7,29 @@ são **GPIOs escritos na placa**, não a posição do pino no conector.
 
 | Pino do sensor | Ligação |
 | --- | --- |
-| VCC | Linha regulada de 5 V |
+| VCC | Pino 5V da ESP32 alimentada pelo USB |
 | GND | GND comum |
 | TRIG | GPIO 23 da ESP32 |
 | ECHO | GPIO 22 através do divisor abaixo |
 
 ```text
-HC-SR04 ECHO ── resistor 1 kΩ ──┬── GPIO 22
-                              │
-                         resistor 2 kΩ
-                              │
-                             GND
+HC-SR04 ECHO ── 330 Ω ── 330 Ω ──┬── GPIO 22
+                               │
+                             330 Ω
+                               │
+                             330 Ω
+                               │
+                             330 Ω
+                               │
+                              GND
 ```
 
-Os resistores não têm polaridade. Não conecte ECHO de 5 V diretamente ao GPIO.
-Se não tiver os resistores, monte o restante e deixe ECHO desconectado até
-instalar o divisor ou um conversor de nível apropriado.
+Use cinco resistores de 330 Ω: dois em série entre ECHO e o ponto ligado ao
+GPIO 22; três em série entre esse mesmo ponto e GND. Os resistores não têm
+polaridade. O divisor tem 660 Ω acima e 990 Ω abaixo: 5 V × 990 / (660 + 990)
+= 3,0 V nominais no GPIO. Isole as emendas para evitar contato entre terminais.
+Não conecte ECHO de 5 V diretamente ao GPIO; alimentá-lo pelo pino 5V da ESP32
+não torna o sinal ECHO compatível com os GPIOs de 3,3 V.
 
 ## Ponte H L298N
 
@@ -38,7 +45,7 @@ instalar o divisor ou um conversor de nível apropriado.
 | OUT3 e OUT4 | Os dois fios do motor B |
 | Vs / terminal marcado 12V | Positivo do suporte de quatro pilhas |
 | GND | Negativo das pilhas e GND comum |
-| 5V da lógica | Linha regulada de 5 V, com jumper 5V_EN retirado |
+| 5V da lógica | Pino 5V da ESP32 alimentada pelo USB, com jumper 5V_EN retirado |
 
 O nome `12V` identifica o terminal de alimentação dos motores; não significa
 que é necessário aplicar 12 V neste carrinho. Use as quatro pilhas informadas,
@@ -49,18 +56,37 @@ e a capacidade de partir com carga ainda precisam ser ajustados na montagem.
 
 1. ESP32 alimentada pelo cabo USB do PC.
 2. Pilhas alimentam somente o estágio dos motores pelo terminal Vs da L298N.
-3. Sensor e lógica da L298N recebem 5 V regulados. A linha de 5 V USB da placa
-   pode ser usada se disponibilizada no seu conector: confira o pino marcado
-   `5V`/`V5` ou a documentação do `VIN` antes de utilizá-lo. Não use `3V3`
+3. O pino `5V` da ESP32 alimentada pelo USB fornece a linha de alimentação para
+   VCC do sensor e o terminal `5V` da lógica da L298N. Essa montagem dispensa
+   uma fonte de 5 V separada durante o teste no PC. Se outra placa usar apenas
+   a inscrição `VIN`, confira seu esquema antes de tratá-lo como saída USB.
+   Não use `3V3`
    para a lógica da L298N e não aplique as quatro pilhas ao GPIO ou à linha de 5 V.
 4. Una GND da ESP32, sensor, ponte, fonte de 5 V e negativo das pilhas.
 5. Retire também o jumper de regulador `5V_EN` da L298N para usar os 5 V externos.
    Não confunda esse jumper com ENA/ENB e confirme as inscrições do módulo.
 
-Faça as ligações com USB e pilhas desconectados. Depois confira a montagem,
-conecte USB, teste o sensor e só então alimente os motores com rodas suspensas.
+## Ordem de montagem
+
+1. Desconecte USB e retire as pilhas do suporte. Remova os jumpers `ENA`, `ENB`
+   e `5V_EN` da L298N; identifique cada um pela inscrição do módulo.
+2. Ligue GND da ESP32 ao GND do sensor, ao GND da L298N e ao negativo do suporte.
+3. Distribua o pino 5V da ESP32 para VCC do sensor e para o terminal 5V da L298N.
+4. Ligue TRIG ao GPIO 23. Monte o divisor de cinco resistores de 330 Ω conforme
+   o desenho e ligue seu ponto central ao GPIO 22.
+5. Ligue os seis sinais da ponte: ENA → 25, IN1 → 26, IN2 → 27,
+   IN3 → 32, IN4 → 21 e ENB → 33.
+6. Ligue um motor entre OUT1 e OUT2, e o outro entre OUT3 e OUT4.
+   Ligue o positivo do suporte ao terminal Vs/12V; mantenha o suporte sem pilhas.
+7. Confira as conexões, conecte somente o USB e abra o monitor serial em
+   115200 baud. Com os motores desarmados, confira as distâncias do sensor.
+8. Suspenda as rodas, coloque as pilhas e envie `A` pelo serial para testar.
+   Envie `S` para parar. Se precisar inverter os fios de um motor, desligue
+   USB e pilhas antes de mexer na montagem.
+
 Para uso sem PC, forneça 5 V regulados por fonte/conversor apropriado; as pilhas
-não substituem diretamente a alimentação USB. Consulte os detalhes e fontes
+não substituem diretamente a alimentação USB. Um powerbank no conector USB
+mantém a mesma distribuição de 5 V. Consulte os detalhes e fontes
 em [hardware.md](hardware.md).
 
 ## Funcionamento do firmware gravado
