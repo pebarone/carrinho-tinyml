@@ -1,0 +1,7 @@
+{
+  "url": "https://wokwi.com/projects/477821599079365633",
+  "public_source_mode": "collection",
+  "tinyml_execution": "Upload locally compiled build/tinyml/carrinho.ino.merged.bin via Wokwi editor F1",
+  "physical_car_simulated": false,
+  "motor_outputs": "ENA/ENB PWM LEDs and GPIO logic analyzer"
+}

@@ -1,0 +1,30 @@
+name: "Coleta com distancia de 100 cm e motores desligados"
+version: 1
+author: "CP2 TinyML - Carrinho"
+steps:
+  - wait-serial: "# collection: motores desligados"
+  - wait-serial: ",1"
+  - expect-pin:
+      part-id: esp
+      pin: 25
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 27
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 33
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 21
+      expected: 0

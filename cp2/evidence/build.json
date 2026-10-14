@@ -1,0 +1,14 @@
+{
+  "arduino_cli": "1.4.1",
+  "esp32_core": "3.3.11",
+  "fqbn": "esp32:esp32:esp32",
+  "mode": "inference",
+  "flash_bytes": 304915,
+  "static_ram_bytes": 24560,
+  "firmware": "build/tinyml/carrinho.ino.merged.bin",
+  "firmware_sha256": "3afeb3300ea6749771d104fae4374b2d851100d4b85970dc5e911dc3fbfa0292",
+  "model_project_id": 1139087,
+  "model_origin": "synthetic",
+  "compiled": true,
+  "executed_on_physical_board": false
+}

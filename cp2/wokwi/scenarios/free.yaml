@@ -1,0 +1,35 @@
+name: "Livre a 120 cm permite avancar quando armado"
+version: 1
+author: "CP2 TinyML - Carrinho"
+steps:
+  - wait-serial: "# TinyML: A arma, S para"
+  - write-serial: "A"
+  - delay: 1500ms
+  - wait-serial: "# inference,livre"
+  - wait-serial: "action=2"
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 1
+  - expect-pin:
+      part-id: esp
+      pin: 27
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 1
+  - expect-pin:
+      part-id: esp
+      pin: 21
+      expected: 0
+  - write-serial: "S"
+  - delay: 50ms
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 0

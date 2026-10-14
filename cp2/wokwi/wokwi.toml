@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+firmware = "../../build/tinyml/carrinho.ino.bin"
+elf = "../../build/tinyml/carrinho.ino.elf"
+vcdFile = "../../build/wokwi/carrinho.vcd"

@@ -1,0 +1,50 @@
+name: "Aproximacao gradual com distancias decrescentes"
+version: 1
+author: "CP2 TinyML - Carrinho"
+# HC-SR04 automation is best-effort: it is absent from Wokwi's documented list of supported scenario controls.
+steps:
+  - set-control:
+      part-id: range
+      control: distance
+      value: 120
+  - wait-serial: "# TinyML: A arma, S para"
+  - write-serial: "A"
+  - delay: 1200ms
+  - wait-serial: "# inference,"
+  - set-control:
+      part-id: range
+      control: distance
+      value: 100
+  - delay: 1200ms
+  - wait-serial: "# inference,"
+  - set-control:
+      part-id: range
+      control: distance
+      value: 80
+  - delay: 1200ms
+  - wait-serial: "# inference,"
+  - set-control:
+      part-id: range
+      control: distance
+      value: 60
+  - delay: 1200ms
+  - wait-serial: "# inference,"
+  - set-control:
+      part-id: range
+      control: distance
+      value: 40
+  - delay: 1200ms
+  - wait-serial: "# inference,"
+  - set-control:
+      part-id: range
+      control: distance
+      value: 20
+  - delay: 1200ms
+  - wait-serial: "# inference,"
+  - set-control:
+      part-id: range
+      control: distance
+      value: 15
+  - delay: 1200ms
+  - wait-serial: "# inference,"
+  - write-serial: "S"

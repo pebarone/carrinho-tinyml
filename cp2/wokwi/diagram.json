@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "author": "CP2 TinyML - Carrinho",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "range",
+      "top": -25,
+      "left": 190,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rLeft",
+      "top": 130,
+      "left": 205,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "motorLeft",
+      "top": 123,
+      "left": 265,
+      "attrs": {
+        "color": "green",
+        "label": "Motor A PWM proxy"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rRight",
+      "top": 210,
+      "left": 205,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "motorRight",
+      "top": 203,
+      "left": 265,
+      "attrs": {
+        "color": "blue",
+        "label": "Motor B PWM proxy"
+      }
+    },
+    {
+      "type": "wokwi-logic-analyzer",
+      "id": "logic",
+      "top": 295,
+      "left": 180,
+      "attrs": {
+        "channelNames": "TRIG,ECHO,ENA,IN1,IN2,ENB,IN3,IN4",
+        "bufferSize": "100000",
+        "triggerMode": "off"
+      }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "range:VCC", "esp:5V", "red", [] ],
+    [ "range:GND", "esp:GND.1", "black", [] ],
+    [ "range:TRIG", "esp:23", "green", [] ],
+    [ "range:ECHO", "esp:22", "orange", [] ],
+    [ "esp:23", "logic:D0", "green", [] ],
+    [ "esp:22", "logic:D1", "orange", [] ],
+    [ "esp:25", "logic:D2", "purple", [] ],
+    [ "esp:26", "logic:D3", "blue", [] ],
+    [ "esp:27", "logic:D4", "cyan", [] ],
+    [ "esp:33", "logic:D5", "purple", [] ],
+    [ "esp:32", "logic:D6", "blue", [] ],
+    [ "esp:21", "logic:D7", "cyan", [] ],
+    [ "esp:25", "rLeft:1", "purple", [] ],
+    [ "rLeft:2", "motorLeft:A", "green", [] ],
+    [ "motorLeft:C", "esp:GND.1", "black", [] ],
+    [ "esp:33", "rRight:1", "purple", [] ],
+    [ "rRight:2", "motorRight:A", "blue", [] ],
+    [ "motorRight:C", "esp:GND.1", "black", [] ],
+    [ "logic:GND", "esp:GND.1", "black", [] ]
+  ],
+  "serialMonitor": {
+    "display": "always",
+    "newline": "lf"
+  },
+  "dependencies": {}
+}

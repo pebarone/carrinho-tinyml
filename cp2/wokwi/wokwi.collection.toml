@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+firmware = "../../build/collection/carrinho.ino.bin"
+elf = "../../build/collection/carrinho.ino.elf"
+vcdFile = "../../build/wokwi/carrinho-collection.vcd"

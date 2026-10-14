@@ -6,10 +6,18 @@
 #include "model_config.h"
 
 static_assert(EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME == 1, "Use somente distance_cm");
+static_assert(EI_CLASSIFIER_RAW_SAMPLE_COUNT == WINDOW_SAMPLES,
+              "Configure janela de 10 leituras");
 static_assert(EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE == WINDOW_SAMPLES,
               "Configure janela de 10 leituras");
 static_assert(EI_CLASSIFIER_INTERVAL_MS == SAMPLE_MS, "Configure 10 Hz");
+static_assert(EI_CLASSIFIER_FREQUENCY == 1000 / SAMPLE_MS, "Configure 10 Hz");
 static_assert(EI_CLASSIFIER_LABEL_COUNT == 3, "Configure as tres classes");
+static_assert(EI_CLASSIFIER_PROJECT_ID == 1139087, "Use a exportacao CP2 correta");
+static_assert(EI_CLASSIFIER_TFLITE_INPUT_DATATYPE == EI_CLASSIFIER_DATATYPE_INT8,
+              "Use entrada quantizada int8");
+static_assert(EI_CLASSIFIER_TFLITE_OUTPUT_DATATYPE == EI_CLASSIFIER_DATATYPE_INT8,
+              "Use saida quantizada int8");
 
 struct WindowPrediction {
   const char* label = nullptr;
