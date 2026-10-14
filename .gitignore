@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+.env
+cp2/firmware/carrinho/model_config.h
+cp2/model/library/
+*.elf
+*.bin
+*.map
+knowledge_base/parte1/wokwi/captura/sketch/build/
