@@ -3,6 +3,7 @@
 #include "policy.h"
 #include "motors.h"
 #include "ultrasonic.h"
+#include "network_status.h"
 #if !COLLECTION_MODE
 #include "inference.h"
 #endif
@@ -11,8 +12,25 @@ float samples[WINDOW_SAMPLES];
 size_t sampleCount = 0;
 unsigned long nextSample = 0;
 bool armed = false;
+Action currentAction = Action::STOP;
+float currentDistance = -1.0f;
+bool currentValid = false;
+const char* currentLabel = "aguardando";
+float currentConfidence = 0.0f;
+unsigned long readingTimestamp = 0;
+NetworkStatus networkStatus;
 motors::MotorDriver motorDriver;
 ultrasonic::Sensor distanceSensor;
+
+void publishStatus() {
+  networkStatus.update(currentDistance, currentValid, armed, currentAction,
+                       currentLabel, currentConfidence, readingTimestamp);
+}
+
+void stopMotors() {
+  motorDriver.stop();
+  currentAction = Action::STOP;
+}
 
 bool processSerialCommands() {
   bool handledCommand = false;
@@ -20,7 +38,7 @@ bool processSerialCommands() {
     const char command = Serial.read();
     if (command == 'S' || command == 's') {
       armed = false;
-      motorDriver.stop();
+      stopMotors();
       sampleCount = 0;
       Serial.println("# disarmed");
       handledCommand = true;
@@ -34,6 +52,7 @@ bool processSerialCommands() {
     }
 #endif
   }
+  if (handledCommand) publishStatus();
   return handledCommand;
 }
 
@@ -41,7 +60,10 @@ void inferCurrentWindow() {
 #if !COLLECTION_MODE
   WindowPrediction prediction;
   if (!inferWindow(samples, prediction)) {
-    motorDriver.stop();
+    stopMotors();
+    currentLabel = "erro_inferencia";
+    currentConfidence = 0.0f;
+    publishStatus();
     return;
   }
   const bool commandArrivedDuringInference = processSerialCommands();
@@ -49,6 +71,10 @@ void inferCurrentWindow() {
                                      armed && motorDriver.ready() && !commandArrivedDuringInference,
                                      CONFIDENCE_MIN);
   motorDriver.drive(action);
+  currentAction = action;
+  currentLabel = prediction.label;
+  currentConfidence = prediction.confidence;
+  publishStatus();
   Serial.printf("# inference,%s,%.5f,action=%d,dsp_ms=%d,nn_ms=%d\n",
                 prediction.label ? prediction.label : "unknown", prediction.confidence,
                 static_cast<int>(action), prediction.dspMs, prediction.classificationMs);
@@ -66,6 +92,7 @@ void setup() {
   Serial.println("timestamp,distance_cm,valid");
   Serial.println(COLLECTION_MODE ? "# collection: motores desligados" : "# TinyML: A arma, S para");
   nextSample = millis();
+  if (!networkStatus.begin()) Serial.println("# wifi,task_error: serial_continues");
 }
 
 void loop() {
@@ -75,16 +102,22 @@ void loop() {
   // Nao recuperar atraso com leituras em rajada: descartar janela irregular.
   if (now - nextSample > 20) {
     sampleCount = 0;
-    motorDriver.stop();
+    stopMotors();
   }
   nextSample = now + SAMPLE_MS;
   const float distance = distanceSensor.readCm();
   const bool valid = distanceSensor.isValid(distance);
+  currentDistance = distance;
+  currentValid = valid;
+  readingTimestamp = now;
   Serial.printf("%lu,%.3f,%d\n", now, distance, valid ? 1 : 0);
   if (!valid || distance < EMERGENCY_CM) {
-    motorDriver.stop();
+    stopMotors();
+    currentLabel = valid ? "emergencia" : "sensor_invalido";
+    currentConfidence = 0.0f;
     if (!valid) {
       sampleCount = 0;
+      publishStatus();
       return;
     }
   }
@@ -102,8 +135,9 @@ void loop() {
       nextSample = millis() + SAMPLE_MS;
 #endif
     } else {
-      motorDriver.stop();
+      stopMotors();
     }
     sampleCount = 0;
   }
+  publishStatus();
 }

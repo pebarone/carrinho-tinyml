@@ -5,6 +5,15 @@ em 13/10/2026 para a próxima sessão, prevista para 14/10/2026. O usuário pedi
 que a etapa virtual fosse concluída primeiro e que a gravação e o treinamento
 com dados físicos fossem feitos depois.
 
+**Atualização de 14/10/2026:** a ESP32-D0WD-V3 na COM4 recebeu o firmware de
+inferência com o modelo sintético e configuração local do hotspot. A gravação
+e a inicialização física foram verificadas; `S` confirmou desarme, houve 338
+leituras inválidas e a reconexão Wi-Fi não bloqueou a leitura. Sensor/motores
+e acesso à rede ainda não foram validados. Veja `cp2/evidence/physical-setup-v1/`
+e [o mapa de ligação](LIGACAO_PLACA_FISICA.md). SSID/senha estão apenas em
+`wifi_config.h`, ignorado pelo Git. O próximo passo é montar/testar sensor e
+ponte, depois coletar os CSVs reais e seguir o treinamento abaixo.
+
 ## Objetivo da próxima sessão
 
 Completar e documentar o ciclo **sensor físico → coleta CSV → Edge Impulse →

@@ -1,0 +1,23 @@
+{
+  "date_local": "2026-10-14",
+  "port": "COM4",
+  "chip": "ESP32-D0WD-V3",
+  "chip_revision": "3.1",
+  "arduino_cli": "1.4.1",
+  "esp32_core": "3.3.11",
+  "fqbn": "esp32:esp32:esp32",
+  "mode": "inference",
+  "model_project_id": 1139087,
+  "model_origin": "synthetic",
+  "flash_bytes": 956363,
+  "static_ram_bytes": 49548,
+  "firmware_sha256": "eeb5008527d71c65e916c0e86230ad6aadc465cf1dc362a6075c643dcb685ff2",
+  "merged_firmware_sha256": "4017484b1eac069be272f026fb27191e131f38734921f75e62c9feeb282cd9b9",
+  "upload_completed": true,
+  "upload_hash_verified": true,
+  "wifi_credentials_configured_locally": true,
+  "wifi_connection_tested": false,
+  "physical_sensor_validation_completed": false,
+  "physical_motor_validation_completed": false,
+  "note": "Firmware contains local Wi-Fi credentials; binary is not published."
+}

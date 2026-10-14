@@ -22,6 +22,12 @@ Na execução manual do projeto Wokwi, a 100 cm o modelo previu `livre` (confian
 
 As avaliações Edge Impulse e as demonstrações Wokwi usam dados ou sensores simulados. Para concluir a entrega acadêmica, colete medições reais, refaça o treinamento/teste com sessões físicas separadas e valide o carrinho montado.
 
+Em 14/10/2026, o firmware com TinyML e Wi-Fi opcional foi gravado na ESP32
+D0WD-V3 da COM4. Gravação, inicialização e desarme serial foram verificados;
+o sensor não forneceu leituras válidas e o hotspot estava desligado. Ainda
+faltam montagem/teste dos periféricos e treino com dados reais. O registro
+está em [physical-setup-v1](cp2/evidence/physical-setup-v1/README.md).
+
 ## Início rápido
 
 No PowerShell, crie e ative o ambiente Python e instale as dependências usadas pelas ferramentas de dados:
@@ -47,6 +53,12 @@ arduino-cli upload --fqbn esp32:esp32:esp32 --port COM5 --input-dir build/tinyml
 
 O ambiente `.venv` é usado pelas ferramentas Python; a compilação e o upload dependem do Arduino CLI e do core ESP32.
 
+Para configurar o hotspot, copie `cp2/firmware/carrinho/wifi_config.example.h`
+para `wifi_config.h` e preencha SSID/senha localmente; esse arquivo é ignorado
+pelo Git. Use uma rede de 2,4 GHz. O firmware informa no serial o IP da consulta
+HTTP de estado quando conectado e funciona normalmente sem Wi-Fi. A consulta
+não aciona motores nem substitui a coleta CSV e o treinamento no Edge Impulse.
+
 ## Organização
 
 | Pasta | Responsabilidade |
@@ -64,6 +76,7 @@ O ambiente `.venv` é usado pelas ferramentas Python; a compilação e o upload 
 ## Guias
 
 - [Handoff para coleta e treinamento físicos — próxima sessão](cp2/docs/HANDOFF_TREINAMENTO_FISICO.md)
+- [Mapa de ligação da placa física](cp2/docs/LIGACAO_PLACA_FISICA.md)
 - [Hardware e ligação segura](cp2/docs/hardware.md)
 - [Coleta e preparação de dados](cp2/docs/coleta.md)
 - [Treinamento e integração do modelo](cp2/docs/treinamento.md)

@@ -6,6 +6,7 @@ build/
 .wokwi-firmware/
 .env
 cp2/firmware/carrinho/model_config.h
+cp2/firmware/carrinho/wifi_config.h
 cp2/model/library/
 *.elf
 *.bin

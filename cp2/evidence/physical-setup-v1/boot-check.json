@@ -1,0 +1,36 @@
+{
+  "date_local": "2026-10-14",
+  "port": "COM4",
+  "chip": "ESP32-D0WD-V3",
+  "mode": "inference",
+  "model_origin": "synthetic",
+  "boot_confirmed": true,
+  "stop_command_confirmed": true,
+  "measurements_observed": 338,
+  "valid_measurements_observed": 0,
+  "wifi_background_retry_observed": true,
+  "hotspot_available_during_test": false,
+  "wifi_connection_tested": false,
+  "motor_motion_tested": false,
+  "failures": [],
+  "comments": [
+    "# TinyML: A arma, S para",
+    "# wifi,connecting_background",
+    "# disarmed",
+    "# wifi,retrying_background"
+  ],
+  "first_measurements": [
+    "22,-1.000,0",
+    "122,-1.000,0",
+    "222,-1.000,0",
+    "322,-1.000,0",
+    "422,-1.000,0"
+  ],
+  "last_measurements": [
+    "33322,-1.000,0",
+    "33422,-1.000,0",
+    "33522,-1.000,0",
+    "33622,-1.000,0",
+    "33722,-1.000,0"
+  ]
+}
