@@ -1,0 +1,149 @@
+{
+  "date_local": "2026-10-18",
+  "project_id": 1140184,
+  "variant": "float32",
+  "execution": "Desktop TensorFlow Lite, not on-device",
+  "reference_model_sha256": "24faf482c17a2f8abd70cbe9e53999365f83da2b0e5f11e1c79395c902ffdc5f",
+  "test_windows": 9,
+  "correct": 8,
+  "results": [
+    {
+      "file": "aproximando.aproximando-s05-0000.csv",
+      "actual": "aproximando",
+      "predicted": "livre",
+      "scores": [
+        0.3727273643016815,
+        4.7124507545959204e-05,
+        0.6272255778312683
+      ]
+    },
+    {
+      "file": "aproximando.aproximando-s05-0001.csv",
+      "actual": "aproximando",
+      "predicted": "aproximando",
+      "scores": [
+        0.9299618005752563,
+        0.0009320589015260339,
+        0.06910611689090729
+      ]
+    },
+    {
+      "file": "aproximando.aproximando-s05-0002.csv",
+      "actual": "aproximando",
+      "predicted": "aproximando",
+      "scores": [
+        0.8455851674079895,
+        0.11008422821760178,
+        0.0443306565284729
+      ]
+    },
+    {
+      "file": "bloqueado.bloqueado-s03-0000.csv",
+      "actual": "bloqueado",
+      "predicted": "bloqueado",
+      "scores": [
+        0.11523569375276566,
+        0.8610097765922546,
+        0.02375456504523754
+      ]
+    },
+    {
+      "file": "bloqueado.bloqueado-s03-0001.csv",
+      "actual": "bloqueado",
+      "predicted": "bloqueado",
+      "scores": [
+        0.11531831324100494,
+        0.860916793346405,
+        0.02376483380794525
+      ]
+    },
+    {
+      "file": "bloqueado.bloqueado-s03-0002.csv",
+      "actual": "bloqueado",
+      "predicted": "bloqueado",
+      "scores": [
+        0.11844541132450104,
+        0.8574971556663513,
+        0.024057507514953613
+      ]
+    },
+    {
+      "file": "livre.livre-s04-0000.csv",
+      "actual": "livre",
+      "predicted": "livre",
+      "scores": [
+        0.0035866533871740103,
+        5.003282076837534e-12,
+        0.9964134097099304
+      ]
+    },
+    {
+      "file": "livre.livre-s04-0001.csv",
+      "actual": "livre",
+      "predicted": "livre",
+      "scores": [
+        0.0036608658265322447,
+        4.480030495884746e-12,
+        0.9963392019271851
+      ]
+    },
+    {
+      "file": "livre.livre-s04-0002.csv",
+      "actual": "livre",
+      "predicted": "livre",
+      "scores": [
+        0.003680302295833826,
+        4.1657658225724425e-12,
+        0.9963196516036987
+      ]
+    }
+  ],
+  "static_windows": [
+    {
+      "distance_cm": 41,
+      "predicted": "aproximando",
+      "confidence": 0.6781246662139893
+    },
+    {
+      "distance_cm": 45,
+      "predicted": "aproximando",
+      "confidence": 0.5379819869995117
+    },
+    {
+      "distance_cm": 50,
+      "predicted": "livre",
+      "confidence": 0.6439563632011414
+    },
+    {
+      "distance_cm": 54,
+      "predicted": "livre",
+      "confidence": 0.766569197177887
+    },
+    {
+      "distance_cm": 55,
+      "predicted": "livre",
+      "confidence": 0.792184591293335
+    },
+    {
+      "distance_cm": 62,
+      "predicted": "livre",
+      "confidence": 0.915432333946228
+    },
+    {
+      "distance_cm": 100,
+      "predicted": "livre",
+      "confidence": 0.9996802806854248
+    },
+    {
+      "distance_cm": 200,
+      "predicted": "livre",
+      "confidence": 1.0
+    },
+    {
+      "distance_cm": 400,
+      "predicted": "livre",
+      "confidence": 1.0
+    }
+  ],
+  "physical_validation": false
+}

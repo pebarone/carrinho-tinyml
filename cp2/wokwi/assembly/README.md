@@ -34,7 +34,7 @@ O desenho usa powerbank USB para a ESP32 e quatro pilhas para os motores.
 Para alimentar tudo com as quatro pilhas, falta um conversor regulado de 5 V
 adequado à faixa de tensão delas. Os positivos ficam separados e os GNDs são comuns.
 
-O firmware físico inicia desarmado e hoje aceita `A`/`S` apenas pela serial.
-Trocar o PC por powerbank reinicia a placa. Antes de operar sem PC, é necessário
-adicionar uma forma de armação/parada no carrinho ou pela rede; a consulta HTTP
-atual é somente leitura. Esse guia não altera o firmware gravado.
+O firmware atual arma automaticamente após 5 segundos. Trocar o PC por powerbank
+ou pressionar RESET reinicia a contagem. `S` cancela a partida/desarma e `A`
+rearma pela serial. A consulta HTTP é somente leitura. A revisão float32
+requer nova gravação e teste físico; este desenho não altera o firmware na placa.

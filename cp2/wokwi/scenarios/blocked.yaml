@@ -1,12 +1,120 @@
-name: "Bloqueado a 15 cm nao aciona motores"
+name: "Alvo a 15 cm: parada, re, giro e desarme"
 version: 1
 author: "CP2 TinyML - Carrinho"
 steps:
-  - wait-serial: "# TinyML: A arma, S para"
-  - write-serial: "A"
-  - delay: 1500ms
-  - wait-serial: "# inference,bloqueado"
-  - wait-serial: "action=0"
+  - wait-serial: "# TinyML autonomo: partida em 5s; S para/cancela; A rearma"
+  - wait-serial: "# auto_armed"
+  - wait-serial: "# avoidance,start:"
+  - expect-pin:
+      part-id: esp
+      pin: 25
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 27
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 33
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 21
+      expected: 0
+  - wait-serial: "# avoidance,action=3"
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 27
+      expected: 1
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 1
+  - expect-pin:
+      part-id: esp
+      pin: 21
+      expected: 0
+  - wait-serial: "# avoidance,action=0"
+  - expect-pin:
+      part-id: esp
+      pin: 25
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 27
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 33
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 21
+      expected: 0
+  - wait-serial: "# avoidance,action=4"
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 1
+  - expect-pin:
+      part-id: esp
+      pin: 27
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 1
+  - expect-pin:
+      part-id: esp
+      pin: 21
+      expected: 0
+  - wait-serial: "# avoidance,done:"
+  - expect-pin:
+      part-id: esp
+      pin: 25
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 27
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 33
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 21
+      expected: 0
+  - write-serial: "S"
+  - wait-serial: "# disarmed"
   - expect-pin:
       part-id: esp
       pin: 25

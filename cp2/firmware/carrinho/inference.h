@@ -3,7 +3,19 @@
 #include "config.h"
 
 #if !COLLECTION_MODE
+#ifndef CP2_USE_SYNTHETIC_MODEL
+#define CP2_USE_SYNTHETIC_MODEL 0
+#endif
+#if CP2_USE_SYNTHETIC_MODEL
 #include "model_config.h"
+constexpr int EXPECTED_MODEL_PROJECT_ID = 1139087;
+constexpr int EXPECTED_MODEL_DATATYPE = EI_CLASSIFIER_DATATYPE_INT8;
+#else
+#include "model_config.real.h"
+constexpr int EXPECTED_MODEL_PROJECT_ID = 1140184;
+constexpr int EXPECTED_MODEL_DATATYPE = EI_CLASSIFIER_DATATYPE_FLOAT32;
+static_assert(EI_CLASSIFIER_PROJECT_DEPLOY_VERSION == 2, "Use a exportacao real float32 v2");
+#endif
 
 static_assert(EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME == 1, "Use somente distance_cm");
 static_assert(EI_CLASSIFIER_RAW_SAMPLE_COUNT == WINDOW_SAMPLES,
@@ -13,11 +25,12 @@ static_assert(EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE == WINDOW_SAMPLES,
 static_assert(EI_CLASSIFIER_INTERVAL_MS == SAMPLE_MS, "Configure 10 Hz");
 static_assert(EI_CLASSIFIER_FREQUENCY == 1000 / SAMPLE_MS, "Configure 10 Hz");
 static_assert(EI_CLASSIFIER_LABEL_COUNT == 3, "Configure as tres classes");
-static_assert(EI_CLASSIFIER_PROJECT_ID == 1139087, "Use a exportacao CP2 correta");
-static_assert(EI_CLASSIFIER_TFLITE_INPUT_DATATYPE == EI_CLASSIFIER_DATATYPE_INT8,
-              "Use entrada quantizada int8");
-static_assert(EI_CLASSIFIER_TFLITE_OUTPUT_DATATYPE == EI_CLASSIFIER_DATATYPE_INT8,
-              "Use saida quantizada int8");
+static_assert(EI_CLASSIFIER_PROJECT_ID == EXPECTED_MODEL_PROJECT_ID,
+              "Use a exportacao correspondente ao perfil real/synthetic selecionado");
+static_assert(EI_CLASSIFIER_TFLITE_INPUT_DATATYPE == EXPECTED_MODEL_DATATYPE,
+              "Use float32 no perfil real e int8 no sintetico");
+static_assert(EI_CLASSIFIER_TFLITE_OUTPUT_DATATYPE == EXPECTED_MODEL_DATATYPE,
+              "Use float32 no perfil real e int8 no sintetico");
 
 struct WindowPrediction {
   const char* label = nullptr;

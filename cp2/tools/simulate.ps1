@@ -5,7 +5,10 @@ param(
 
     [Parameter(Mandatory = $true)]
     [ValidateSet('collection', 'blocked', 'free', 'emergency', 'approach')]
-    [string]$Scenario
+    [string]$Scenario,
+
+    [ValidateSet('real', 'synthetic')]
+    [string]$Model = 'real'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -19,17 +22,12 @@ $repoDir = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
 $projectDir = Join-Path $repoDir 'cp2\wokwi'
 $diagramPath = Join-Path $projectDir 'diagram.json'
 $scenarioPath = Join-Path $projectDir "scenarios\$Scenario.yaml"
-$outputName = if ($Mode -eq 'collection') { 'collection' } else { 'tinyml' }
+$outputName = if ($Mode -eq 'collection') { 'collection' } elseif ($Model -eq 'real') { 'tinyml-real' } else { 'tinyml' }
 $outputDir = Join-Path $repoDir 'build\wokwi'
 $runRoot = Join-Path $projectDir '.runs'
 
 if (-not (Test-Path -LiteralPath $scenarioPath)) {
     throw "Arquivo de cenario nao encontrado: $scenarioPath"
-}
-
-& (Join-Path $PSScriptRoot 'build.ps1') -Mode $Mode
-if ($LASTEXITCODE -ne 0) {
-    throw "A compilacao para o modo $Mode falhou."
 }
 
 $wokwiCommand = Get-Command wokwi-cli -ErrorAction SilentlyContinue
@@ -39,6 +37,8 @@ if (-not $wokwiCommand) {
 if (-not (Test-Path Env:WOKWI_CLI_TOKEN)) {
     throw 'Defina WOKWI_CLI_TOKEN com um token de CI do Wokwi antes de executar o CLI. A licenca da extensao do VS Code nao substitui esse token.'
 }
+
+& (Join-Path $PSScriptRoot 'build.ps1') -Mode $Mode -Model $Model
 
 New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
 New-Item -ItemType Directory -Path $runRoot -Force | Out-Null
@@ -56,7 +56,7 @@ try {
         'blocked' { '15' }
         'free' { '120' }
         'emergency' { '5' }
-        'approach' { '120' }
+        'approach' { '45' }
     }
     ($diagram.parts | Where-Object { $_.id -eq 'range' }).attrs.distance = $distance
     $stagedDiagramPath = Join-Path $runDir 'diagram.json'
@@ -73,8 +73,8 @@ firmware = "$relativeFirmware"
 elf = "$relativeElf"
 "@ | ForEach-Object { [IO.File]::WriteAllText((Join-Path $runDir 'wokwi.toml'), $_, [Text.UTF8Encoding]::new($false)) }
 
-    $logPath = Join-Path $outputDir "$Mode-$Scenario.serial.log"
-    $vcdPath = Join-Path $outputDir "$Mode-$Scenario.vcd"
+    $logPath = Join-Path $outputDir "$Mode-$Model-$Scenario.serial.log"
+    $vcdPath = Join-Path $outputDir "$Mode-$Model-$Scenario.vcd"
     & $wokwiCommand.Source $runDir --scenario 'scenario.yaml' --serial-log-file $logPath --vcd-file $vcdPath --timeout 15000
     if ($LASTEXITCODE -ne 0) {
         throw "wokwi-cli falhou com codigo $LASTEXITCODE no cenario $Scenario."

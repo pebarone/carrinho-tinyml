@@ -1,6 +1,10 @@
 #pragma once
 
-enum class Action { STOP, SLOW, FORWARD };
+enum class Action { STOP, SLOW, FORWARD, REVERSE, TURN_RIGHT };
+
+constexpr bool mustStopForDistance(float distance, bool valid, float stopDistance) {
+  return !valid || !(distance > stopDistance);
+}
 
 constexpr bool isFiniteUnitScore(float score) {
   return score == score && score >= 0.0f && score <= 1.0f;

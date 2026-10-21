@@ -1,0 +1,27 @@
+{
+  "origin": "real",
+  "project_id": 1140184,
+  "project_url": "https://studio.edgeimpulse.com/studio/1140184",
+  "date_local": "2026-10-18",
+  "deployment_version": 2,
+  "file": "edge-impulse-arduino-real-v1-float32.zip",
+  "sha256": "3a25663fbe8afc5cdbbe5897a7d5039fd2c65ba0742fbf5117960d83758cb32f",
+  "bytes": 5238427,
+  "format": "Arduino library",
+  "inference_engine": "EON Compiler",
+  "model_variant": "float32",
+  "library_version": "1.0.2",
+  "header": "cp2-carrinho-real-v1_inferencing.h",
+  "window_samples": 10,
+  "interval_ms": 100,
+  "dsp_scale": 0.01,
+  "classes": [
+    "aproximando",
+    "bloqueado",
+    "livre"
+  ],
+  "reference_model": "cp2-carrinho-real-v1.float32.tflite",
+  "reference_model_sha256": "24faf482c17a2f8abd70cbe9e53999365f83da2b0e5f11e1c79395c902ffdc5f",
+  "training_unchanged": true,
+  "physical_validation": false
+}

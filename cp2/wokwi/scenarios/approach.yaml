@@ -1,50 +1,49 @@
-name: "Aproximacao gradual com distancias decrescentes"
+name: "Alvo estatico a 45 cm: progresso lento sem travamento"
 version: 1
 author: "CP2 TinyML - Carrinho"
-# HC-SR04 automation is best-effort: it is absent from Wokwi's documented list of supported scenario controls.
 steps:
-  - set-control:
-      part-id: range
-      control: distance
-      value: 120
-  - wait-serial: "# TinyML: A arma, S para"
-  - write-serial: "A"
-  - delay: 1200ms
-  - wait-serial: "# inference,"
-  - set-control:
-      part-id: range
-      control: distance
-      value: 100
-  - delay: 1200ms
-  - wait-serial: "# inference,"
-  - set-control:
-      part-id: range
-      control: distance
-      value: 80
-  - delay: 1200ms
-  - wait-serial: "# inference,"
-  - set-control:
-      part-id: range
-      control: distance
-      value: 60
-  - delay: 1200ms
-  - wait-serial: "# inference,"
-  - set-control:
-      part-id: range
-      control: distance
-      value: 40
-  - delay: 1200ms
-  - wait-serial: "# inference,"
-  - set-control:
-      part-id: range
-      control: distance
-      value: 20
-  - delay: 1200ms
-  - wait-serial: "# inference,"
-  - set-control:
-      part-id: range
-      control: distance
-      value: 15
-  - delay: 1200ms
-  - wait-serial: "# inference,"
+  - wait-serial: "# TinyML autonomo: partida em 5s; S para/cancela; A rearma"
+  - wait-serial: "# auto_armed"
+  - wait-serial: "# drive,action=1,"
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 1
+  - expect-pin:
+      part-id: esp
+      pin: 27
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 21
+      expected: 1
   - write-serial: "S"
+  - wait-serial: "# disarmed"
+  - expect-pin:
+      part-id: esp
+      pin: 25
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 26
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 27
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 33
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 32
+      expected: 0
+  - expect-pin:
+      part-id: esp
+      pin: 21
+      expected: 0

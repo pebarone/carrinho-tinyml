@@ -33,18 +33,24 @@ class MotorDriver {
     digitalWrite(IN4_PIN, LOW);
   }
 
-  void drive(Action action) {
+  void drive(Action action, int duty = -1) {
     if (action == Action::STOP || !pwmReady_) {
       stop();
       return;
     }
-    digitalWrite(IN1_PIN, HIGH);
-    digitalWrite(IN2_PIN, LOW);
-    digitalWrite(IN3_PIN, HIGH);
-    digitalWrite(IN4_PIN, LOW);
-    const int duty = action == Action::SLOW ? SLOW_PWM : CRUISE_PWM;
-    ledcWrite(ENA_PIN, duty);
-    ledcWrite(ENB_PIN, duty);
+    ledcWrite(ENA_PIN, 0);
+    ledcWrite(ENB_PIN, 0);
+    const bool leftForward = action != Action::REVERSE;
+    const bool rightForward = action != Action::REVERSE && action != Action::TURN_RIGHT;
+    digitalWrite(IN1_PIN, leftForward ? HIGH : LOW);
+    digitalWrite(IN2_PIN, leftForward ? LOW : HIGH);
+    // Compensa OUT3/OUT4, conforme correcao solicitada no teste de bancada.
+    digitalWrite(IN3_PIN, rightForward ? LOW : HIGH);
+    digitalWrite(IN4_PIN, rightForward ? HIGH : LOW);
+    const int requestedDuty = duty < 0 ? (action == Action::SLOW ? SLOW_PWM : CRUISE_PWM) : duty;
+    const int appliedDuty = constrain(requestedDuty, 0, 255);
+    ledcWrite(ENA_PIN, appliedDuty);
+    ledcWrite(ENB_PIN, appliedDuty);
   }
 
   bool ready() const { return pwmReady_; }
