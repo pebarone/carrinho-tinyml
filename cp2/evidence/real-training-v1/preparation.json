@@ -1,0 +1,60 @@
+{
+  "date_local": "2026-10-14",
+  "board": "ESP32 DevKitC V4 / ESP32-D0WD-V3 rev 3.1",
+  "port": "COM4",
+  "arduino_cli": "1.4.1",
+  "esp32_core": "3.3.11",
+  "collection_build": {
+    "flash_bytes": 925303,
+    "ram_bytes": 47292,
+    "result": "passed"
+  },
+  "inference_build": {
+    "flash_bytes": 956399,
+    "ram_bytes": 49548,
+    "result": "passed; existing synthetic library, not a newly trained real model"
+  },
+  "uploaded_mode": "collection",
+  "upload_result": "passed, esptool hashes verified",
+  "policy_checks": "passed, including five added distance-stop boundary/invalid assertions",
+  "dataset_tests": "3 passed",
+  "edge_impulse": {
+    "project_id": 1140184,
+    "url": "https://studio.edgeimpulse.com/studio/1140184",
+    "name": "cp2-carrinho-real-v1",
+    "visibility": "private",
+    "training_status": "not started; awaiting labeled dataset"
+  },
+  "calibration_sessions": [
+    {
+      "nominal_cm": 20,
+      "reference": "user estimate",
+      "median_cm": 14.56
+    },
+    {
+      "nominal_cm": 40,
+      "reference": "user estimate",
+      "median_cm": 44.196
+    },
+    {
+      "nominal_cm": 80,
+      "reference": "user reported 80 cm; independent reference not verified",
+      "median_cm": 68.377
+    }
+  ],
+  "first_labeled_session": {
+    "file": "cp2/data/real/raw/livre-s00.csv",
+    "label": "livre",
+    "measurements": 31,
+    "valid": 29
+  },
+  "motors_commanded": false,
+  "real_model_trained": false,
+  "physical_inference_action_verified": false,
+  "historical_record": true,
+  "superseded_by": [
+    "dataset.json",
+    "metrics.json",
+    "on-device.json"
+  ]
+}

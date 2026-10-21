@@ -1,0 +1,9 @@
+{
+  "label": "aproximando",
+  "origin": "real",
+  "measurements": 31,
+  "sha256": "98f0598cf6688b2dbdfcf4c70192d50dad4ac7a44b47eaa535446afa97705350",
+  "review_status": "excluded_from_initial_training",
+  "review_reason": "Distancia variou pouco, com reversoes; nao correspondeu ao movimento continuo solicitado.",
+  "exclusion_basis": "Scene/trajectory mismatch identified before model training, not model performance."
+}

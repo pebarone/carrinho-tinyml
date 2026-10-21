@@ -1,0 +1,88 @@
+{
+  "date_local": "2026-10-14",
+  "project_id": 1140184,
+  "model_variant": "int8",
+  "firmware": "build/tinyml-real/carrinho.ino.bin",
+  "automatic_control": "model class and confidence drive action; fixed near-distance and invalid-read interlocks remain active",
+  "phases": [
+    {
+      "phase": "livre",
+      "readings": 50,
+      "valid": 32,
+      "invalid": 18,
+      "min_cm": 32.534,
+      "max_cm": 150.337,
+      "inferences": [
+        "# inference,livre,0.92969,action=2,dsp_ms=0,nn_ms=0",
+        "# inference,livre,0.92969,action=2,dsp_ms=0,nn_ms=0"
+      ],
+      "actions": [
+        2,
+        2
+      ],
+      "stop_acknowledged": true
+    },
+    {
+      "phase": "aproximando",
+      "readings": 50,
+      "valid": 50,
+      "invalid": 0,
+      "min_cm": 11.988,
+      "max_cm": 31.642,
+      "inferences": [],
+      "actions": [],
+      "stop_acknowledged": true
+    },
+    {
+      "phase": "bloqueado",
+      "readings": 31,
+      "valid": 31,
+      "invalid": 0,
+      "min_cm": 21.094,
+      "max_cm": 25.622,
+      "inferences": [
+        "# inference,aproximando,0.50391,action=0,dsp_ms=0,nn_ms=0",
+        "# inference,aproximando,0.54297,action=0,dsp_ms=0,nn_ms=0",
+        "# inference,aproximando,0.49219,action=0,dsp_ms=0,nn_ms=0"
+      ],
+      "actions": [
+        0,
+        0,
+        0
+      ],
+      "stop_acknowledged": true
+    },
+    {
+      "phase": "aproximando-acima20",
+      "readings": 49,
+      "valid": 49,
+      "invalid": 0,
+      "min_cm": 37.113,
+      "max_cm": 76.832,
+      "inferences": [
+        "# inference,livre,0.92969,action=2,dsp_ms=0,nn_ms=0",
+        "# inference,livre,0.92969,action=2,dsp_ms=0,nn_ms=0",
+        "# inference,aproximando,0.97266,action=1,dsp_ms=0,nn_ms=0",
+        "# inference,aproximando,0.51562,action=0,dsp_ms=0,nn_ms=0"
+      ],
+      "actions": [
+        2,
+        2,
+        1,
+        0
+      ],
+      "stop_acknowledged": true
+    }
+  ],
+  "physical_observation_source": "user confirmation after bounded test",
+  "physical_observation": "Sim: os dois giraram, reduziram e pararam",
+  "physical_motion_verified_by_user": true,
+  "independently_observed_by_agent": false,
+  "final_state": "disarmed, S acknowledged",
+  "limitations": [
+    "Wheels suspended bench test, not autonomous navigation on floor",
+    "Invalid ultrasonic readings occurred in free-space motor-powered phase; cause not isolated",
+    "Small dataset and test set; one reserved approach window confused with free"
+  ],
+  "video_recorded": false
+}

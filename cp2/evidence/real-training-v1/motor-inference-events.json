@@ -1,0 +1,787 @@
+[
+  {
+    "phase": "livre",
+    "seconds": 0.0,
+    "line": "# armed"
+  },
+  {
+    "phase": "livre",
+    "seconds": 0.093,
+    "line": "128947,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 0.203,
+    "line": "129047,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 0.296,
+    "line": "129147,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 0.39,
+    "line": "129247,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 0.5,
+    "line": "129347,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 0.593,
+    "line": "129447,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 0.703,
+    "line": "129547,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 0.796,
+    "line": "129647,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 0.89,
+    "line": "129747,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.0,
+    "line": "129847,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.093,
+    "line": "129947,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.203,
+    "line": "130047,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.296,
+    "line": "130147,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.39,
+    "line": "130247,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.484,
+    "line": "130347,136.960,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.578,
+    "line": "130447,136.617,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.687,
+    "line": "130547,139.944,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.781,
+    "line": "130647,142.585,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.875,
+    "line": "130747,138.932,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 1.984,
+    "line": "130847,140.047,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.078,
+    "line": "130947,149.634,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.187,
+    "line": "131047,142.431,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.281,
+    "line": "131147,140.304,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.39,
+    "line": "131247,141.385,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.39,
+    "line": "# score,aproximando,0.07031"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.39,
+    "line": "# score,bloqueado,0.00000"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.39,
+    "line": "# score,livre,0.92969"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.39,
+    "line": "# inference,livre,0.92969,action=2,dsp_ms=0,nn_ms=0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.5,
+    "line": "131367,138.966,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.593,
+    "line": "131467,137.337,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.703,
+    "line": "131567,137.269,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.796,
+    "line": "131667,136.480,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 2.89,
+    "line": "131767,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.0,
+    "line": "131867,136.977,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.093,
+    "line": "131967,136.120,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.187,
+    "line": "132067,32.534,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.296,
+    "line": "132167,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.406,
+    "line": "132267,138.761,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.5,
+    "line": "132367,139.018,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.593,
+    "line": "132467,138.178,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.703,
+    "line": "132567,137.835,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.796,
+    "line": "132667,139.790,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 3.906,
+    "line": "132767,147.164,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.0,
+    "line": "132867,139.687,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.093,
+    "line": "132967,139.944,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.203,
+    "line": "133067,148.022,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.312,
+    "line": "133167,149.376,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.312,
+    "line": "# score,aproximando,0.07031"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.312,
+    "line": "# score,bloqueado,0.00000"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.312,
+    "line": "# score,livre,0.92969"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.312,
+    "line": "# inference,livre,0.92969,action=2,dsp_ms=0,nn_ms=0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.421,
+    "line": "133288,138.315,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.515,
+    "line": "133388,138.572,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.625,
+    "line": "133488,138.332,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.718,
+    "line": "133588,150.337,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.828,
+    "line": "133688,139.258,1"
+  },
+  {
+    "phase": "livre",
+    "seconds": 4.937,
+    "line": "133788,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 5.031,
+    "line": "133888,-1.000,0"
+  },
+  {
+    "phase": "livre",
+    "seconds": 5.046,
+    "line": "# disarmed"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.015,
+    "line": "# armed"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.093,
+    "line": "168092,20.837,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.187,
+    "line": "168192,19.397,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.296,
+    "line": "168292,19.054,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.39,
+    "line": "168392,18.128,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.5,
+    "line": "168492,17.613,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.593,
+    "line": "168592,17.184,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.687,
+    "line": "168692,16.687,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.796,
+    "line": "168792,16.258,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 0.89,
+    "line": "168892,16.172,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.0,
+    "line": "168992,15.401,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.093,
+    "line": "169092,15.058,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.187,
+    "line": "169192,14.715,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.296,
+    "line": "169292,14.389,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.39,
+    "line": "169392,14.457,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.5,
+    "line": "169492,14.286,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.593,
+    "line": "169592,14.972,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.687,
+    "line": "169692,15.486,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.796,
+    "line": "169792,15.744,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 1.89,
+    "line": "169892,15.744,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.0,
+    "line": "169992,16.155,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.093,
+    "line": "170092,15.744,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.187,
+    "line": "170192,17.116,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.296,
+    "line": "170292,16.327,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.39,
+    "line": "170392,16.001,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.5,
+    "line": "170492,16.327,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.593,
+    "line": "170592,17.442,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.687,
+    "line": "170692,31.642,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.796,
+    "line": "170792,13.857,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 2.89,
+    "line": "170892,13.600,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.0,
+    "line": "170992,12.245,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.093,
+    "line": "171092,12.588,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.187,
+    "line": "171192,12.588,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.296,
+    "line": "171292,12.674,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.39,
+    "line": "171392,13.686,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.5,
+    "line": "171492,13.703,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.593,
+    "line": "171592,13.703,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.687,
+    "line": "171692,13.703,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.796,
+    "line": "171792,13.771,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 3.89,
+    "line": "171892,14.286,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.0,
+    "line": "171992,14.303,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.093,
+    "line": "172092,13.874,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.187,
+    "line": "172192,13.771,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.296,
+    "line": "172292,13.360,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.39,
+    "line": "172392,13.771,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.5,
+    "line": "172492,13.103,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.593,
+    "line": "172592,13.188,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.687,
+    "line": "172692,12.674,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.796,
+    "line": "172792,12.502,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 4.89,
+    "line": "172892,11.988,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 5.0,
+    "line": "172992,12.074,1"
+  },
+  {
+    "phase": "aproximando",
+    "seconds": 5.0,
+    "line": "# disarmed"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.0,
+    "line": "# armed"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.015,
+    "line": "221670,22.895,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.109,
+    "line": "221770,22.895,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.219,
+    "line": "221870,24.079,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.312,
+    "line": "221970,24.079,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.406,
+    "line": "222070,24.079,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.515,
+    "line": "222170,21.695,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.609,
+    "line": "222270,23.307,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.719,
+    "line": "222370,23.307,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.812,
+    "line": "222470,22.466,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.922,
+    "line": "222570,22.466,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.922,
+    "line": "# score,aproximando,0.50391"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.922,
+    "line": "# score,bloqueado,0.44531"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.922,
+    "line": "# score,livre,0.05078"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 0.922,
+    "line": "# inference,aproximando,0.50391,action=0,dsp_ms=0,nn_ms=0"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.031,
+    "line": "222683,24.079,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.125,
+    "line": "222783,23.221,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.234,
+    "line": "222883,23.993,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.328,
+    "line": "222983,23.564,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.422,
+    "line": "223083,23.135,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.531,
+    "line": "223183,23.564,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.625,
+    "line": "223283,23.993,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.734,
+    "line": "223383,25.622,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.828,
+    "line": "223483,23.135,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.937,
+    "line": "223583,23.135,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.937,
+    "line": "# score,aproximando,0.54297"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.937,
+    "line": "# score,bloqueado,0.39844"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.937,
+    "line": "# score,livre,0.05469"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 1.937,
+    "line": "# inference,aproximando,0.54297,action=0,dsp_ms=0,nn_ms=0"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.047,
+    "line": "223696,23.564,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.14,
+    "line": "223796,24.422,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.234,
+    "line": "223896,23.067,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.344,
+    "line": "223996,23.478,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.437,
+    "line": "224096,22.981,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.547,
+    "line": "224196,23.393,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.64,
+    "line": "224296,22.552,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.734,
+    "line": "224396,22.895,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.844,
+    "line": "224496,21.609,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.937,
+    "line": "224596,22.381,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.937,
+    "line": "# score,aproximando,0.49219"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.953,
+    "line": "# score,bloqueado,0.46094"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.953,
+    "line": "# score,livre,0.04688"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 2.953,
+    "line": "# inference,aproximando,0.49219,action=0,dsp_ms=0,nn_ms=0"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 3.047,
+    "line": "224709,21.094,1"
+  },
+  {
+    "phase": "bloqueado",
+    "seconds": 3.047,
+    "line": "# disarmed"
+  }
+]

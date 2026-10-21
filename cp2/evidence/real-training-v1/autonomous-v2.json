@@ -1,0 +1,64 @@
+{
+  "firmware_sha256": "459626bc9d9f37be02e5604993d56d241f069cbecb0fdeaa3703f6c88e22ddb7",
+  "model_project": 1140184,
+  "dataset_unchanged": true,
+  "stages": [
+    {
+      "name": "automatic_boot_no_A_command",
+      "events": [
+        "# inference,bloqueado,0.80859,action=0,dsp_ms=0,nn_ms=0",
+        "# inference,bloqueado,0.83984,action=0,dsp_ms=0,nn_ms=0",
+        "# inference,bloqueado,0.83984,action=0,dsp_ms=0,nn_ms=0",
+        "# auto_armed",
+        "# avoidance,start: pausa, re 300ms, pausa, giro direito 450ms, pausa",
+        "# inference,bloqueado,0.82422,action=0,dsp_ms=0,nn_ms=0",
+        "# avoidance,action=3",
+        "# avoidance,action=0",
+        "# avoidance,action=4",
+        "# avoidance,action=0",
+        "# avoidance,done: nova janela antes de avancar",
+        "# avoidance,start: pausa, re 300ms, pausa, giro direito 450ms, pausa",
+        "# inference,bloqueado,0.82422,action=0,dsp_ms=0,nn_ms=0",
+        "# avoidance,action=3",
+        "# avoidance,action=0",
+        "# avoidance,action=4",
+        "# avoidance,action=0",
+        "# avoidance,done: nova janela antes de avancar",
+        "# avoidance,start: pausa, re 300ms, pausa, giro direito 450ms, pausa",
+        "# inference,bloqueado,0.86719,action=0,dsp_ms=0,nn_ms=0",
+        "# avoidance,action=3",
+        "# avoidance,action=0",
+        "# avoidance,action=4",
+        "# avoidance,action=0",
+        "# avoidance,done: nova janela antes de avancar",
+        "# inference,livre,0.92969,action=2,dsp_ms=0,nn_ms=0"
+      ],
+      "readings": 110,
+      "valid": 110,
+      "min_cm": 4.51,
+      "max_cm": 89.677
+    },
+    {
+      "name": "stop_after_boot",
+      "events": [
+        "# disarmed"
+      ],
+      "readings": 10,
+      "valid": 10,
+      "min_cm": 80.073,
+      "max_cm": 89.592
+    },
+    {
+      "name": "final_disarm",
+      "events": [
+        "# inference,livre,0.92969,action=0,dsp_ms=0,nn_ms=0",
+        "# disarmed"
+      ],
+      "readings": 10,
+      "valid": 10,
+      "min_cm": 77.072,
+      "max_cm": 113.224
+    }
+  ],
+  "physical_movement_observed_by_agent": false
+}

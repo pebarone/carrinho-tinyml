@@ -1,0 +1,23 @@
+{
+  "origin": "real",
+  "purpose": "calibration_only_not_training",
+  "expected_distance_cm": 80,
+  "target_position": "User confirmed target at measured 80 cm from transducer front; motors unpowered",
+  "date_local": "2026-10-14",
+  "port": "COM4",
+  "mode": "collection",
+  "stop_acknowledged": true,
+  "measurements": 81,
+  "valid_measurements": 81,
+  "invalid_measurements": 0,
+  "parse_errors": 0,
+  "mean_cm": 68.42217283950617,
+  "median_cm": 68.377,
+  "min_cm": 67.434,
+  "max_cm": 69.972,
+  "stdev_cm": 0.527491777248496,
+  "within_2cm_count": 0,
+  "median_interval_ms": 100.0,
+  "irregular_interval_count": 0,
+  "sha256": "e91fb31bf9d66c5544eced9504c9a23ad400ca8e3bb6a32f75d7ab76cd3f2e1f"
+}

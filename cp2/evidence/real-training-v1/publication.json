@@ -1,0 +1,18 @@
+{
+  "date_local": "2026-10-21",
+  "project_id": 1140184,
+  "visibility": "public",
+  "public_url": "https://studio.edgeimpulse.com/public/1140184/live",
+  "access": "Anyone can view and clone; only invited collaborators can edit",
+  "license": "BSD-3-Clause",
+  "proof": "10-projeto-publico.png",
+  "repository": "https://github.com/pebarone/cp2-carrinho-tinyml",
+  "project_readme_links_repository": true,
+  "checks_today": {
+    "python": "5 tests passed; TensorFlow model regression class skipped (numpy/tensorflow unavailable)",
+    "cpp_policy": "passed",
+    "document_links": "passed",
+    "secret_patterns": "passed"
+  },
+  "new_training_or_collection": false
+}

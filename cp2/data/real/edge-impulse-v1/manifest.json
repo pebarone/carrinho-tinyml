@@ -1,0 +1,310 @@
+[
+  {
+    "file": "testing/livre.livre-s04-0000.csv",
+    "session": "livre-s04.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "testing/livre.livre-s04-0001.csv",
+    "session": "livre-s04.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "testing/livre.livre-s04-0002.csv",
+    "session": "livre-s04.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s02-0000.csv",
+    "session": "livre-s02.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s02-0001.csv",
+    "session": "livre-s02.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s02-0002.csv",
+    "session": "livre-s02.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s03-0000.csv",
+    "session": "livre-s03.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s03-0001.csv",
+    "session": "livre-s03.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s03-0002.csv",
+    "session": "livre-s03.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s05-0000.csv",
+    "session": "livre-s05.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s05-0001.csv",
+    "session": "livre-s05.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s05-0002.csv",
+    "session": "livre-s05.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s00-0000.csv",
+    "session": "livre-s00.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/livre.livre-s00-0001.csv",
+    "session": "livre-s00.csv",
+    "label": "livre",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "testing/aproximando.aproximando-s05-0000.csv",
+    "session": "aproximando-s05.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "testing/aproximando.aproximando-s05-0001.csv",
+    "session": "aproximando-s05.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "testing/aproximando.aproximando-s05-0002.csv",
+    "session": "aproximando-s05.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s03-0000.csv",
+    "session": "aproximando-s03.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s03-0001.csv",
+    "session": "aproximando-s03.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s03-0002.csv",
+    "session": "aproximando-s03.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s04-0000.csv",
+    "session": "aproximando-s04.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s04-0001.csv",
+    "session": "aproximando-s04.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s04-0002.csv",
+    "session": "aproximando-s04.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s06-0000.csv",
+    "session": "aproximando-s06.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s06-0001.csv",
+    "session": "aproximando-s06.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s06-0002.csv",
+    "session": "aproximando-s06.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s01-0000.csv",
+    "session": "aproximando-s01.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s01-0001.csv",
+    "session": "aproximando-s01.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/aproximando.aproximando-s01-0002.csv",
+    "session": "aproximando-s01.csv",
+    "label": "aproximando",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "testing/bloqueado.bloqueado-s03-0000.csv",
+    "session": "bloqueado-s03.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "testing/bloqueado.bloqueado-s03-0001.csv",
+    "session": "bloqueado-s03.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "testing/bloqueado.bloqueado-s03-0002.csv",
+    "session": "bloqueado-s03.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s01-0000.csv",
+    "session": "bloqueado-s01.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s01-0001.csv",
+    "session": "bloqueado-s01.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s01-0002.csv",
+    "session": "bloqueado-s01.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s02-0000.csv",
+    "session": "bloqueado-s02.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s02-0001.csv",
+    "session": "bloqueado-s02.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s02-0002.csv",
+    "session": "bloqueado-s02.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s04-0000.csv",
+    "session": "bloqueado-s04.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s04-0001.csv",
+    "session": "bloqueado-s04.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s04-0002.csv",
+    "session": "bloqueado-s04.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s00-0000.csv",
+    "session": "bloqueado-s00.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s00-0001.csv",
+    "session": "bloqueado-s00.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  },
+  {
+    "file": "training/bloqueado.bloqueado-s00-0002.csv",
+    "session": "bloqueado-s00.csv",
+    "label": "bloqueado",
+    "origin": "real",
+    "measurements": 10
+  }
+]

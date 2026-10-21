@@ -1,0 +1,11 @@
+{
+  "label": "bloqueado",
+  "origin": "real",
+  "measurements": 31,
+  "sha256": "b685433e70bd3659d44a6ba23a94d1ae8e3cd8ad8914037935c6e1625d4e35af",
+  "review_status": "resolved_by_user_confirmation",
+  "review_reason": "Usuario confirmou: sim coloquei a caixa bem perto mesmo. Classe corrigida pelo cenario fisico informado; CSV preservado sem alteracoes.",
+  "original_label": "livre",
+  "original_filename": "livre-s01.csv",
+  "scenario": "Caixa proxima e parada; mediana do sensor 10.307 cm."
+}

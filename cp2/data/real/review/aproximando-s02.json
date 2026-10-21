@@ -1,0 +1,9 @@
+{
+  "label": "aproximando",
+  "origin": "real",
+  "measurements": 31,
+  "sha256": "8b0b7d81fab08235b9493be2532484c35ab196f6070b6e62a7abdbfcea21f096",
+  "review_status": "excluded_from_initial_training",
+  "review_reason": "Distancia aumentou de aproximadamente 14 para 26 cm: afastamento, nao aproximacao.",
+  "exclusion_basis": "Scene/trajectory mismatch identified before model training, not model performance."
+}

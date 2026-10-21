@@ -1,0 +1,56 @@
+{
+  "project_id": 1140184,
+  "origin": "real",
+  "raw_sessions": 15,
+  "raw_measurements": 464,
+  "valid_raw_measurements": 462,
+  "prepared_windows": 44,
+  "prepared_measurements": 440,
+  "window_ms": 1000,
+  "sample_interval_ms": 100,
+  "dsp_scale": 0.01,
+  "train_test_split": "by complete session, random seed 42",
+  "counts": {
+    "training": {
+      "livre": 11,
+      "aproximando": 12,
+      "bloqueado": 12
+    },
+    "testing": {
+      "livre": 3,
+      "aproximando": 3,
+      "bloqueado": 3
+    }
+  },
+  "training_status": "completed in Edge Impulse; int8 and float32 evaluated",
+  "limitations": [
+    "Same environment and box; limited independent conditions",
+    "Five short sessions per class; small test set",
+    "Two approach attempts excluded for scene mismatch before training",
+    "Internal validation split may share sessions; reserved testing does not"
+  ],
+  "training_configuration": {
+    "epochs": 300,
+    "learning_rate": 0.005,
+    "processor": "CPU",
+    "dense_layers": [
+      20,
+      10
+    ],
+    "classes": [
+      "aproximando",
+      "bloqueado",
+      "livre"
+    ]
+  },
+  "validation": {
+    "correct": 6,
+    "total": 7,
+    "accuracy": 0.8571428571428571
+  },
+  "test": {
+    "correct": 8,
+    "total": 9,
+    "accuracy": 0.8888888888888888
+  }
+}

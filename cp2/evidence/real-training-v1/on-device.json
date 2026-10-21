@@ -1,0 +1,23 @@
+{
+  "date_local": "2026-10-14",
+  "project_id": 1140184,
+  "variant": "int8",
+  "mode": "inference real",
+  "board": "ESP32-D0WD-V3 rev 3.1",
+  "port": "COM4",
+  "flash_bytes": 956431,
+  "static_ram_bytes": 49548,
+  "firmware_sha256": "5b4ac2a144fc48e8308c0d68af441ef19ba1931fb2728c27f56864154dd0df51",
+  "upload": "passed; esptool hashes verified",
+  "readings": 120,
+  "valid_readings": 120,
+  "inferences": 11,
+  "labels": {
+    "livre": 11
+  },
+  "stop_acknowledged": true,
+  "armed": false,
+  "motor_motion_verified": true,
+  "serial_log": "on-device-disarmed-serial.txt",
+  "motor_motion_evidence": "motor-response.json; subsequent bounded test and user confirmation"
+}

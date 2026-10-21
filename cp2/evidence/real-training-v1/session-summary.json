@@ -1,0 +1,167 @@
+[
+  {
+    "file": "aproximando-s01.csv",
+    "label": "aproximando",
+    "measurements": 30,
+    "valid": 30,
+    "min_cm": 26.48,
+    "max_cm": 53.542,
+    "median_cm": 39.831,
+    "first_cm": 53.542,
+    "last_cm": 26.48
+  },
+  {
+    "file": "aproximando-s03.csv",
+    "label": "aproximando",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 36.872,
+    "max_cm": 57.795,
+    "median_cm": 47.317,
+    "first_cm": 57.452,
+    "last_cm": 36.872
+  },
+  {
+    "file": "aproximando-s04.csv",
+    "label": "aproximando",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 29.447,
+    "max_cm": 40.525,
+    "median_cm": 35.998,
+    "first_cm": 39.565,
+    "last_cm": 29.447
+  },
+  {
+    "file": "aproximando-s05.csv",
+    "label": "aproximando",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 22.466,
+    "max_cm": 50.147,
+    "median_cm": 41.452,
+    "first_cm": 49.032,
+    "last_cm": 22.466
+  },
+  {
+    "file": "aproximando-s06.csv",
+    "label": "aproximando",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 31.762,
+    "max_cm": 61.894,
+    "median_cm": 50.73,
+    "first_cm": 61.466,
+    "last_cm": 31.762
+  },
+  {
+    "file": "bloqueado-s00.csv",
+    "label": "bloqueado",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 10.29,
+    "max_cm": 10.307,
+    "median_cm": 10.307,
+    "first_cm": 10.307,
+    "last_cm": 10.307
+  },
+  {
+    "file": "bloqueado-s01.csv",
+    "label": "bloqueado",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 3.91,
+    "max_cm": 3.996,
+    "median_cm": 3.91,
+    "first_cm": 3.996,
+    "last_cm": 3.996
+  },
+  {
+    "file": "bloqueado-s02.csv",
+    "label": "bloqueado",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 12.417,
+    "max_cm": 12.434,
+    "median_cm": 12.434,
+    "first_cm": 12.434,
+    "last_cm": 12.434
+  },
+  {
+    "file": "bloqueado-s03.csv",
+    "label": "bloqueado",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 17.613,
+    "max_cm": 18.042,
+    "median_cm": 17.63,
+    "first_cm": 17.63,
+    "last_cm": 17.613
+  },
+  {
+    "file": "bloqueado-s04.csv",
+    "label": "bloqueado",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 14.372,
+    "max_cm": 14.389,
+    "median_cm": 14.389,
+    "first_cm": 14.389,
+    "last_cm": 14.389
+  },
+  {
+    "file": "livre-s00.csv",
+    "label": "livre",
+    "measurements": 31,
+    "valid": 29,
+    "min_cm": 64.553,
+    "max_cm": 209.967,
+    "median_cm": 103.895,
+    "first_cm": 105.095,
+    "last_cm": 64.553
+  },
+  {
+    "file": "livre-s02.csv",
+    "label": "livre",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 58.396,
+    "max_cm": 59.991,
+    "median_cm": 59.253,
+    "first_cm": 59.493,
+    "last_cm": 58.842
+  },
+  {
+    "file": "livre-s03.csv",
+    "label": "livre",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 43.681,
+    "max_cm": 44.676,
+    "median_cm": 44.504,
+    "first_cm": 44.178,
+    "last_cm": 44.093
+  },
+  {
+    "file": "livre-s04.csv",
+    "label": "livre",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 82.714,
+    "max_cm": 86.916,
+    "median_cm": 83.949,
+    "first_cm": 83.932,
+    "last_cm": 83.761
+  },
+  {
+    "file": "livre-s05.csv",
+    "label": "livre",
+    "measurements": 31,
+    "valid": 31,
+    "min_cm": 102.077,
+    "max_cm": 126.43,
+    "median_cm": 104.546,
+    "first_cm": 102.488,
+    "last_cm": 104.203
+  }
+]
