@@ -1,4 +1,11 @@
-# Handoff — coleta real, treinamento e ESP32 físico
+# Handoff histórico — coleta real, treinamento e ESP32 físico
+
+> Atualizado em 18/10/2026: este roteiro original é histórico. Para operar,
+> use [NAVEGACAO_AUTONOMA.md](NAVEGACAO_AUTONOMA.md): modelo real float32 v2,
+> partida automática em 5 segundos, avanço cauteloso para baixa confiança,
+> parada/ré/giro em até 20 cm. Os registros de gravação anteriores são int8.
+
+**Continuação física de 14/10/2026:** consulte primeiro [a campanha atual](COLETA_REAL_V1.md), [as evidências](../evidence/real-training-v1/README.md) e [o diário](../data/real/diario-coleta.md). Novo projeto real: 1140184; lote de 15 sessões reais, treino/teste no Edge Impulse e exportação int8 concluídos. Confira o registro atual de gravação antes de operar a placa. O texto abaixo descreve o handoff anterior; as referências de montagem, estado dos testes e projeto real foram atualizadas nesses documentos.
 
 Este documento permite continuar o projeto sem o histórico do chat. Preparado
 em 13/10/2026 para a próxima sessão, prevista para 14/10/2026. O usuário pediu
@@ -16,9 +23,9 @@ ponte, depois coletar os CSVs reais e seguir o treinamento abaixo.
 
 **Montagem visual:** [HTML interativo](montagem.html) e
 [Wokwi ilustrado](https://wokwi.com/projects/477883916754720769). O powerbank
-USB resolve a alimentação embarcada, mas o firmware inicia desarmado e só
-aceita `A`/`S` pelo serial. Antes de operar sem PC, implementar uma forma
-de armar/parar no próprio carrinho ou pela rede, preservando os intertravamentos.
+USB resolve a alimentação embarcada. O firmware atual arma automaticamente
+em 5 segundos; `S` cancela a partida e `A` rearma pelo serial. A consulta
+HTTP permanece somente leitura.
 O divisor resistivo não funcionou na simulação Wokwi e os chips customizados
 não tiveram validação dinâmica; usar o projeto digital original para TinyML.
 
@@ -195,12 +202,12 @@ em situações bloqueadas. Registre também casos ambíguos e leituras inválida
 
 ## 5. Exportar o modelo físico e atualizar a integração
 
-Exporte **Arduino library, EON Compiler, int8**. Preserve o ZIP sintético v1;
+Exporte **Arduino library, EON Compiler, float32** para o perfil real atual. Preserve o ZIP sintético v1;
 salve o novo pacote com nome próprio, por exemplo
 `cp2/model/edge-impulse-arduino-physical-v1.zip`, e registre SHA-256, ID, origem
 real, cabeçalho exportado e vínculo com a campanha física.
 
-**Atenção ao código atual:** `build.ps1` aponta para o ZIP sintético v1 e só
+**Estado anterior (substituído pelos perfis real/synthetic):** `build.ps1` apontava para o ZIP sintético v1 e só
 descompacta se a pasta da biblioteca não existir. Trocar apenas um ZIP pode
 deixar a compilação usando a biblioteca antiga. Use uma pasta de expansão
 própria para o modelo físico e atualize de forma consistente:
@@ -210,15 +217,15 @@ própria para o modelo físico e atualize de forma consistente:
 - `inference.h`: ID esperado do novo projeto e compatibilidade da entrada;
 - metadados do modelo e documentação: origem, versão, hash e resultados.
 
-Mantenha as verificações de janela, frequência, três classes e int8. Atualize
+Mantenha as verificações de janela, frequência, três classes e float32 no perfil real. Atualize
 o ID esperado com o ID real; não remova as assertions para aceitar um modelo
 incompatível. O firmware escolhe ações pelos nomes das classes, não pela ordem.
 Se alterar nomes ou significado das classes, atualize política e testes.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\cp2\tests\test_policy.ps1
-powershell -ExecutionPolicy Bypass -File .\cp2\tools\build.ps1 -Mode inference
-arduino-cli upload --fqbn esp32:esp32:esp32 --port COM5 --input-dir build/tinyml cp2/firmware/carrinho
+powershell -ExecutionPolicy Bypass -File .\cp2\tools\build.ps1 -Mode inference -Model real
+arduino-cli upload --fqbn esp32:esp32:esp32 --port COM5 --input-dir build/tinyml-real cp2/firmware/carrinho
 ```
 
 Confira no build o novo modelo vinculado e registre uso de flash/RAM e hash do
@@ -228,10 +235,10 @@ que veio da compilação concluída com o modelo físico.
 ## 6. Testar a placa e concluir a entrega
 
 Primeiro com rodas suspensas, acompanhe leituras, scores, classe e ação no serial.
-O firmware inicia desarmado: `A` arma e `S` para. Verifique `livre` → avanço
-(PWM 160), `aproximando` → redução (PWM 110), `bloqueado` → parada, confiança
-abaixo de 0,80 → parada, leitura inválida → parada e distância abaixo de 8 cm
-→ emergência. Esses são valores atuais, não calibração física comprovada.
+O firmware atual arma automaticamente em 5 segundos: `S` cancela e `A`
+rearma. Verifique avanço, avanço cauteloso em 45/50 cm, parada em até 20 cm,
+ré, pausa, giro, pausa e retomada com nova janela válida. Leitura inválida
+cancela movimento. Use os PWM documentados no guia atual de navegação.
 Confira o sentido dos dois motores e ajuste PWM se necessário para vencer o
 atrito do carrinho, documentando mudanças. Depois teste no chão em área livre.
 

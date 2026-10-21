@@ -12,7 +12,15 @@
     "python": "5 tests passed; TensorFlow model regression class skipped (numpy/tensorflow unavailable)",
     "cpp_policy": "passed",
     "document_links": "passed",
-    "secret_patterns": "passed"
+    "secret_patterns": "passed",
+    "real_firmware_build": {
+      "result": "passed",
+      "fqbn": "esp32:esp32:esp32",
+      "flash_bytes": 953667,
+      "static_ram_bytes": 49420,
+      "firmware_sha256": "482e5a798812ddfc1f5e2d6ea6863e78b843e820e5723e2231732025b0f05309",
+      "upload_performed": false
+    }
   },
   "new_training_or_collection": false
 }

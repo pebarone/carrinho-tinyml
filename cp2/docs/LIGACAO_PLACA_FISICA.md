@@ -94,28 +94,19 @@ em [hardware.md](hardware.md).
 
 ## Funcionamento do firmware gravado
 
-O modo de inferência inicia **desarmado**. Pelo monitor serial da COM da placa,
-a 115200 baud, envie `A` para armar e `S` para parar/desarmar. Leitura inválida,
-distância abaixo de 8 cm ou confiança abaixo de 0,80 impedem movimento.
+O perfil de inferência atual usa o modelo real float32 1140184 e arma
+**automaticamente após 5 segundos**. Pelo serial a 115200 baud, `S` para,
+desarma e cancela a partida; `A` rearma. Trocar para powerbank ou pressionar
+RESET reinicia a contagem. Não é necessário PC ou Wi-Fi para navegar.
 
-O powerbank resolve a alimentação sem fio, mas trocar o USB do PC pelo powerbank
-reinicia a placa desarmada. O firmware atual ainda exige serial para armar;
-antes de rodar sem PC, é necessário adicionar uma forma de armação/parada
-no carrinho ou pela rede. A consulta HTTP atual não controla motores.
+O modo collection mantém os motores desligados. Para conferir o sensor sem
+movimento no perfil de inferência, envie `S` antes de energizar Vs. A política
+vigente, PWM e sequência de ré/giro estão em
+[NAVEGACAO_AUTONOMA.md](NAVEGACAO_AUTONOMA.md). A saída OUT3/OUT4 já tem
+compensação de sentido no código; não inverta também seus fios.
 
-| Classe com confiança suficiente | Ação |
-| --- | --- |
-| `livre` | Avançar, PWM 160 |
-| `aproximando` | Reduzir, PWM 110 |
-| `bloqueado` | Parar |
-
-Se um motor girar ao contrário, desarme, retire alimentação e inverta os dois
-fios desse motor. Nunca ligue um motor diretamente a um GPIO ou ao pino 5V da ESP32.
-Somente após conferir sentido e leitura do sensor faça o teste no chão.
-
-O modelo disponível é o Edge Impulse int8 treinado com dados sintéticos. O
-firmware opera no hardware físico, mas o treinamento com medições reais do
-grupo continua pendente; siga o [handoff](HANDOFF_TREINAMENTO_FISICO.md).
+A exportação float32 atual requer nova gravação. Os ensaios de bancada com
+int8 são históricos e não validam o deslocamento no chão desta revisão.
 
 ## Hotspot e consulta pelo navegador
 
@@ -129,7 +120,8 @@ O sensor e a inferência continuam funcionando com o hotspot desligado. Quando
 conectar, o serial mostrará `# wifi,connected,http://<IP>`.
 Abra esse endereço, ou `http://<IP>/state`, no navegador de um aparelho com
 acesso à mesma rede. A resposta JSON mostra distância, validade do sensor,
-classe, confiança, armação e ação atual: 0 = parar, 1 = reduzir, 2 = avançar.
+classe, confiança, armação e ação atual: 0 = parar, 1 = reduzir, 2 = avançar,
+3 = ré e 4 = giro à direita.
 Atualize a página para obter nova leitura. O acesso depende também de o hotspot
 permitir comunicação com os dispositivos conectados.
 

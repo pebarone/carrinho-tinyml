@@ -1,42 +1,149 @@
-# Evidências e entrega
+# CP2 — Carrinho com TinyML
 
-## Já registrado
+**[Repositório](https://github.com/pebarone/cp2-carrinho-tinyml)** · **[Edge Impulse público — projeto 1140184](https://studio.edgeimpulse.com/public/1140184/live)** · **Seção da entrega: `cp2/`**
 
-- O Edge Impulse tem configuração, treino, validação e teste int8/float32 em `cp2/evidence/edge-impulse/`. A validação automática acertou 96/96; o teste reservado por sessão acertou 120/120 (40 por classe) nas duas variantes. Os dados são sintéticos.
-- O ZIP Arduino oficial está versionado em `cp2/model/edge-impulse-arduino-v1.zip`. A compilação de inferência terminou com Arduino CLI 1.4.1 e core ESP32 3.3.11: 304.915 bytes de flash e 24.560 bytes de RAM estática.
-- A coleta Wokwi registrou alvo de 100 cm e leituras válidas próximas de 100,8 cm, a cada 100 ms.
-- Na execução manual do projeto Wokwi, a 100 cm o classificador previu `livre` (0,99609, ação `2`); a 15 cm previu `bloqueado` (0,99609, ação `0`). O tempo de inferência foi de 2–3 ms. A execução desligou os LEDs que representam os sinais dos motores no caso bloqueado e os habilitou no caso livre.
-- Na transição de 80,7 cm para 40,3 cm, o modelo previu `aproximando` (0,99609; ação `1`; PWM 110; inferência de 2 ms). Em uma leitura estática a 40,3 cm, a distribuição foi `aproximando` 0,53516, `bloqueado` 0,07812 e `livre` 0,38672; como o maior score ficou abaixo do limiar 0,80, a política aplicou ação `0` (parada segura).
-- A distância crítica de 5 cm interrompeu os motores previamente habilitados pela ação `1`. A evidência inclui `wokwi/04-emergency.jpg` e `wokwi/emergency-after-motion-serial.txt`.
-- O comando serial `S` desarmou o firmware; `wokwi/disarmed-serial.txt` registra `# disarmed`, e `wokwi/07-disarmed.jpg` mostra os sinais dos motores desabilitados.
-- O código-fonte dos firmwares CP1 por limiar e CP2 TinyML está no repositório. O CP1 é uma reconstrução comparativa, não um artefato histórico recuperado.
+O CP2 acrescenta ao carrinho a classificação de distâncias com um modelo
+Edge Impulse executado na ESP32. A saída altera os comandos dos motores.
 
-Todos os resultados Wokwi acima foram verificados manualmente no navegador, usando `build/tinyml/carrinho.ino.merged.bin`; LEDs representam os sinais ENA/ENB na simulação. Os cenários do Wokwi CLI, incluindo aproximação, continuam experimentais e não foram aprovados por esses testes manuais.
+## 1. Sensor, coleta e CSVs
 
-## Pendente para a entrega física
+O grupo utilizou **HC-SR04**, ESP32 DevKitC V4 e captura serial a 115200 baud.
+O sensor foi amostrado a **10 Hz**, com motores desligados durante a coleta;
+uma caixa foi posicionada perto, longe ou movida em direção ao sensor.
+Cada linha bruta contém `timestamp` (ms), `distance_cm` e `valid`.
 
-- **Dados acadêmicos e montagem:** coletar leituras reais, manter sessões inteiras fora do treino, refazer a avaliação e demonstrar o carrinho físico. Ainda não há validação física registrada.
+Foram aceitas **15 sessões reais**, cinco por classe: **464 medições, 462
+válidas**. Após descartar leituras inválidas e sobras, sem interpolar, foram
+preparadas **44 janelas de 10 leituras (440 pontos)**.
 
-A validação automática de 96 janelas usa 20% das janelas de treino sem agrupamento por sessão. O teste reservado de 120 janelas é mais independente por manter sessões separadas, mas ambas as partições são sintéticas. Não apresente essas métricas ou as respostas do Wokwi como desempenho do hardware real.
+| Classe | Situação coletada | Janelas de treino | Janelas de teste |
+| --- | --- | ---: | ---: |
+| `livre` | Caixa distante e parada | 11 | 3 |
+| `aproximando` | Caixa se aproximando continuamente | 12 | 3 |
+| `bloqueado` | Caixa próxima e parada | 12 | 3 |
+| **Total** | **15 sessões** | **35** | **9** |
 
-Guarde os registros em `cp2/evidence/`, com contexto, origem dos dados e versões. Não armazene tokens, credenciais ou dados pessoais desnecessários.
+Os [CSVs brutos e metadados](../data/real/raw/), [CSVs importados](../data/real/edge-impulse-v1/)
+e [manifesto de origem](../data/real/edge-impulse-v1/manifest.json) estão
+versionados. O [diário de coleta](../data/real/diario-coleta.md) registra
+reposicionamentos, reclassificações e exclusões anteriores ao treinamento.
+Tentativas inadequadas e conferências exploratórias foram preservadas fora
+do treino. As distâncias de referência estimadas não foram tratadas como
+calibração precisa. Não foram misturados dados sintéticos ao lote real.
 
-## Datas informadas
+## 2. Preparação e treinamento no Edge Impulse
 
-- Envio do vídeo: **14/10/2026**.
-- Demonstração presencial: **21/10/2026**.
+O projeto real é separado da referência sintética anterior. Em **21/10/2026**,
+foi tornado público: qualquer pessoa pode visualizar e clonar; edição continua
+restrita aos colaboradores. O Edge Impulse o disponibiliza sob BSD de 3 cláusulas.
 
-No vídeo, indique a origem sintética dos dados de treinamento e identifique como simulação os resultados obtidos no Wokwi. Se a escola exigir o firmware histórico do CP1, confirme qual registro original deve acompanhar a referência reconstruída deste repositório.
+1. Separação por **sessão inteira**, seed 42: 12 sessões para treino e 3 para teste. Uma sessão nunca aparece nas duas partições.
+2. Importação das pastas `training/` e `testing/` separadamente pelo CSV Wizard: vírgula, cabeçalho, timestamp em ms, somente `distance_cm` como entrada e rótulo pelo nome do arquivo.
+3. Impulse: **1.000 ms de janela e avanço**, **10 Hz**, processamento **Raw Data**, escala **0,01**. A biblioteca aplica a escala; o código fornece centímetros.
+4. Classificador: rede densa com **20 e 10 neurônios**, três saídas, **300 épocas**, learning rate **0,005**, treinamento em CPU.
+5. Validação interna de 20% das 35 janelas: 28 para ajuste e 7 para validação. O teste reservado de 9 janelas foi avaliado separadamente.
 
-## Postagem no Teams
+### Resultados
 
-Publique a entrega na seção CP2 do Teams e inclua o link do repositório, o vídeo da demonstração e a identificação dos integrantes.
+| Avaliação | Acertos | Acurácia | Loss float32 |
+| --- | ---: | ---: | ---: |
+| Validação interna | 6/7 | 85,71% | 0,321268 |
+| Teste reservado | 8/9 | 88,89% | 0,187927 |
 
-| Item | Dado para a postagem |
+Int8 obteve os mesmos totais de acerto. Matriz de confusão do **teste reservado**,
+com linhas reais e colunas previstas:
+
+| Real / Previsto | aproximando | bloqueado | livre |
+| --- | ---: | ---: | ---: |
+| aproximando | 2 | 0 | 1 |
+| bloqueado | 0 | 3 | 0 |
+| livre | 0 | 0 | 3 |
+
+Uma janela de aproximação foi confundida com livre; F1 ponderado do teste ≈ **0,886**.
+A validação interna não é separada por sessão. O teste reservado é, mas tem
+apenas nove janelas, da mesma caixa/ambiente: não demonstra generalização.
+
+**Evidências:** [importação e dataset](../evidence/real-training-v1/03-dataset-real.png),
+[Impulse](../evidence/real-training-v1/04-impulse.png),
+[configuração do treino](../evidence/real-training-v1/06-training-settings.png),
+[validação](../evidence/real-training-v1/07-validation-int8.png),
+[teste float32](../evidence/real-training-v1/08-test-float32.png) e
+[métricas oficiais completas](../evidence/real-training-v1/metrics.json).
+
+## 3. Biblioteca, ESP32 e ação no carrinho
+
+O modelo foi exportado como **biblioteca Arduino oficial EON**. O perfil atual
+usa **float32 v2 / biblioteca 1.0.2**, do mesmo treinamento, para evitar a
+saturação de entrada da exportação int8 anterior acima de aproximadamente
+61,9 cm. [ZIP atual](../model/edge-impulse-arduino-real-v1-float32.zip),
+[versão e SHA-256](../model/export-real-v1-float32.json) e exports anteriores
+estão preservados em `cp2/model/`.
+
+| Etapa no código | Arquivo |
 | --- | --- |
-| Repositório | https://github.com/pebarone/cp2-carrinho-tinyml |
-| Seção | CP2 |
-| Vídeo | Anexar ou incluir o link do vídeo; envio até 14/10/2026 |
-| Integrante 1 | João Pedro de Albuquerque Oliveira — RM551579 |
-| Integrante 2 | Pedro Augusto Carneiro Barone Bomfim — RM99781 |
-| Integrante 3 | Matheus Augusto Santos Rego — RM551466 |
+| Ler HC-SR04 e formar janela de 10 distâncias | [carrinho.ino](../firmware/carrinho/carrinho.ino), [ultrasonic.h](../firmware/carrinho/ultrasonic.h) |
+| Executar `run_classifier` localmente e obter classe/confiança | [inference.h](../firmware/carrinho/inference.h) |
+| Usar a previsão para decidir ação e PWM | [policy.h](../firmware/carrinho/policy.h), [navigation.h](../firmware/carrinho/navigation.h) |
+| Aplicar sinais e PWM à L298N | [motors.h](../firmware/carrinho/motors.h) |
+
+Após 5 segundos da partida, o carrinho arma automaticamente. Acima de 40 cm,
+com confiança ≥ 0,80, `livre` avança (PWM 255), `aproximando` reduz (220) e
+`bloqueado` para. Uma classe conhecida com baixa confiança permite avanço
+cauteloso (180). Entre 40 e 20 cm, a distância limita o PWM de 220 a 180.
+Em até 20 cm, a proteção direta inicia parada, ré curta e giro à direita;
+essa manobra é acionada pela distância, não apresentada como decisão do modelo.
+A inferência tem efeito real sobre avanço e velocidade, além dessa proteção.
+
+Leitura inválida para. `S` desarma; `A` rearma. O sensor só observa à frente;
+a ré e o giro são temporizados, sem garantia de ângulo ou saída de cantos.
+Pinos, alimentação e reprodução: [hardware](hardware.md),
+[navegação e instalação](NAVEGACAO_AUTONOMA.md) e [comandos de build](../../README.md#compilar-e-gravar).
+
+## 4. O que foi verificado
+
+| Verificação | Evidência / alcance |
+| --- | --- |
+| Sensor → inferência real na ESP32 (int8) | [Log na placa](../evidence/real-training-v1/on-device.json): 120 leituras válidas e 11 inferências |
+| Inferência → motores (int8) | [Ensaio e confirmação visual do grupo](../evidence/real-training-v1/motor-response.json): os dois motores avançaram, reduziram e pararam |
+| Partida e manobra autônoma (versão int8) | [Teste serial](../evidence/real-training-v1/autonomous-v2.json); [aproximação, ré e giro](../evidence/real-training-v1/navigation-distance-v3.json) |
+| Revisão atual float32 | [Verificação desktop e compilações](../evidence/navigation-float32-v4/README.md): 8/9 no teste reservado; sem novo treinamento |
+| Acesso público ao projeto | [Captura de publicação](../evidence/real-training-v1/10-projeto-publico.png) |
+
+Verificação em 21/10: build real aprovado (953.667 bytes de flash), cinco
+testes Python aprovados e assertions C++ aprovadas. O grupo de regressões
+TensorFlow foi ignorado neste ambiente por falta de NumPy/TensorFlow; a
+execução anterior está registrada na revisão de 18/10. Nenhum upload foi feito
+nesta atualização de documentação.
+
+**Limites atuais:** a revisão float32 ainda requer gravação e validação física;
+os testes de bancada anteriores não comprovam navegação no chão dessa versão.
+O grupo também observou queda das pilhas de 5,5 V para 3,8 V sob carga,
+impedindo partida consistente; é uma limitação de alimentação a resolver para
+a demonstração. O vídeo será acrescentado pelo grupo.
+
+## 5. Evolução e entrega
+
+`cp1/` mantém a referência por limiar reconstruída; `cp2/` acrescenta dataset,
+modelo e inferência. A etapa sintética/Wokwi e a atividade de LDR foram
+preservadas e identificadas como históricas. Os commits separam coleta/treino,
+integração/testes e documentação, sem reescrever o histórico do CP1.
+
+| Requisito da avaliação | Onde conferir |
+| --- | --- |
+| Dataset e coleta — 10 pontos | Seção 1, CSVs e diário |
+| Edge Impulse — 15 pontos | Projeto público, seção 2, prints e métricas |
+| Integração ESP32 — 10 pontos | Seções 3–4, código e biblioteca |
+| Organização/evolução — 5 pontos | Pastas CP1/CP2 e histórico Git |
+| Funcionamento — 60 pontos | Evidências de bancada; demonstração física e vídeo devem complementar |
+
+Para o **Teams**: enviar o link do repositório, indicar `cp2/` e este documento,
+acrescentar o vídeo e os integrantes abaixo. Datas informadas na atividade:
+vídeo em **14/10** e apresentação presencial em **21/10**.
+
+| Integrante | RM |
+| --- | --- |
+| João Pedro de Albuquerque Oliveira | 551579 |
+| Pedro Augusto Carneiro Barone Bomfim | 99781 |
+| Matheus Augusto Santos Rego | 551466 |
+
+**Vídeo da demonstração:** pendente — o grupo adicionará o link aqui.

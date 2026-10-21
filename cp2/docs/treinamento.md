@@ -1,5 +1,15 @@
 # Treinamento e integração do modelo
 
+## Modelo real v1 — 14/10/2026
+
+Projeto [cp2-carrinho-real-v1, 1140184](https://studio.edgeimpulse.com/public/1140184/live), separado do sintético. Dataset: 15 sessões reais, 464 medições, 44 janelas (35 treino / 9 teste), com sessões inteiras reservadas. Treino no Edge Impulse: Raw Data, escala 0,01, 10 Hz, janela/stride de 1 s, rede densa 20/10, 300 épocas, learning rate 0,005, CPU. Validação interna int8: 6/7 (85,71%); teste reservado int8 e float32: 8/9 (88,89%). Uma aproximação foi confundida com livre.
+
+Veja [métricas, prints e limitações](../evidence/real-training-v1/README.md), [diário](../data/real/diario-coleta.md) e [exportação versionada](../model/export-real-v1.json). São poucos dados do mesmo ambiente; a validação interna não separa sessões, e o teste reservado é pequeno. A exportação real int8 original é `edge-impulse-arduino-real-v1.zip`. Desde 18/10, o perfil padrão usa a exportação oficial float32 v2 `edge-impulse-arduino-real-v1-float32.zip`, sem novo treinamento; consulte [o manifesto atual](../model/export-real-v1-float32.json). Os uploads e PWM descritos a seguir são históricos. O perfil real compilou (956.431 bytes flash, 49.548 bytes RAM), foi gravado e executou 11 inferências na ESP32 com os motores desarmados. Depois, o teste armado registrou livre/PWM 160 e aproximando/PWM 110, seguido de parada; o usuário confirmou movimento, redução e parada dos dois motores. Logs nas evidências da campanha. O ensaio terminou desarmado.
+
+Compile o perfil real com `cp2/tools/build.ps1 -Mode inference -Model real` (padrão), saída `build/tinyml-real/`. Para reproduzir a referência sintética, use `-Model synthetic`, saída `build/tinyml/`. O firmware verifica ID, frequência, janela, classes, float32 v2 no perfil real e int8 no sintético. A inferência arma automaticamente em 5 segundos; S cancela a partida/desarma e A rearma; não são os comandos W/S do sketch manual. A parada direta a 20 cm é proteção adicional e não substitui demonstrar a ação por classificação.
+
+## Referência sintética preservada
+
 O projeto privado [CP2 Carrinho Ultrassom, ID 1139087](https://studio.edgeimpulse.com/studio/1139087) já tem um impulso e um modelo treinado. A entrada corresponde a uma janela de 1 s, avanço de 1 s e frequência de 10 Hz: 10 leituras da única variável `distance_cm`.
 
 ## Configuração treinada
@@ -35,7 +45,7 @@ O ZIP oficial exportado está versionado em `cp2/model/edge-impulse-arduino-v1.z
 Compile o modo de inferência a partir da raiz do repositório:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\cp2\tools\build.ps1 -Mode inference
+powershell -ExecutionPolicy Bypass -File .\cp2\tools\build.ps1 -Mode inference -Model synthetic
 ```
 
 O script descompacta o ZIP em `cp2/model/library/`, cria `model_config.h` a partir do exemplo se necessário e passa a biblioteca ao Arduino CLI. O conteúdo expandido e `model_config.h` são locais e ignorados pelo repositório. Os binários ficam em `build/tinyml/`. A compilação foi concluída com Arduino CLI 1.4.1 e core ESP32 3.3.11: 304.915 bytes de flash e 24.560 bytes de RAM estática. O arquivo `build/tinyml/carrinho.ino.merged.bin` foi usado para executar o firmware no navegador Wokwi.
