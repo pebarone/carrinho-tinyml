@@ -1,8 +1,8 @@
 # Carrinho-robô TinyML
 
-<video src="https://github.com/pebarone/carrinho-tinyml/raw/main/media/video_carrinho.mp4" controls muted width="360"></video>
+<a href="media/video_carrinho.mp4"><img src="media/preview_carrinho.gif" alt="Carrinho desviando de obstáculo" width="270"></a>
 
-▶️ [Vídeo do carrinho funcionando](media/video_carrinho.mp4) — se o player acima não carregar, abra por este link.
+▶️ **[Vídeo completo do carrinho funcionando (45 s, com áudio)](media/video_carrinho.mp4)**
 
 ## Integrantes
 
@@ -60,6 +60,7 @@ Gravação e detalhes: [instruções de uso](docs/06-evidencias-uso.md#instruç�
 ├── docs/                  ← documentação da entrega (requisitos → evidências)
 ├── media/
 │   ├── video_carrinho.mp4 ← vídeo do carrinho funcionando
+│   ├── preview_carrinho.gif ← prévia animada do vídeo
 │   └── fotos/             ← fotos do carrinho finalizado
 ├── cp1/                   ← MVP: firmware por limiar de distância + testes
 ├── cp2/
