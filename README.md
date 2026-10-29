@@ -1,60 +1,87 @@
-# Carrinho TinyML — CP1 → CP2
-https://github.com/pebarone/cp2-carrinho-tinyml/blob/main/WhatsApp%20Video%202026-10-21%20at%2020.43.20.mp4
+# Carrinho-robô TinyML
 
-# Integrantes
+<video src="https://github.com/pebarone/carrinho-tinyml/raw/main/media/video_carrinho.mp4" controls muted width="360"></video>
 
-- João Pedro de Albuquerque Oliveira RM: 551579
-- Pedro Augusto Carneiro Barone Bomfim RM:99781
-- Matheus Augusto Santos Rego RM:551466
+▶️ [Vídeo do carrinho funcionando](media/video_carrinho.mp4) — se o player acima não carregar, abra por este link.
 
-Carrinho com **ESP32 DevKitC V4, HC-SR04, ponte L298N e dois motores TT**.
-No CP2, dados reais do sensor treinam um modelo que interfere no movimento.
+## Integrantes
 
-**[Documento de entrega CP2](cp2/docs/entrega.md)** · **[Edge Impulse público](https://studio.edgeimpulse.com/public/1140184/live)** · [GitHub](https://github.com/pebarone/cp2-carrinho-tinyml)
-
-## O que foi desenvolvido
-
-**Sensor → CSV → Edge Impulse → treinamento → teste → biblioteca Arduino → inferência na ESP32 → motores.**
-
-- **Dados reais:** 15 sessões, 464 medições (462 válidas), 44 janelas de 1 segundo; 35 para treino e 9 para teste, separadas por sessão.
-- **Classes:** `livre`, `aproximando` e `bloqueado`.
-- **Resultado:** 85,71% na validação interna (6/7) e 88,89% no teste reservado (8/9). Um caso de aproximação foi confundido com livre.
-- **Integração:** inferência e reação dos motores confirmadas em bancada na versão int8. O perfil atual usa a biblioteca oficial float32 v2, com o mesmo treinamento; sua validação física ainda está pendente.
-- **Vídeo:** será acrescentado pelo grupo.
-
-O firmware inicia após 5 segundos. A classificação controla avanço/velocidade;
-o limite direto de 20 cm inicia parada, ré curta e giro. Leitura inválida para;
-`S` desarma e `A` rearma. Detalhes em [navegação autônoma](cp2/docs/NAVEGACAO_AUTONOMA.md).
-
-## Onde encontrar
-
-| Material | Local |
+| Nome | RM |
 | --- | --- |
-| Relatório, métricas, matriz e integrantes | [Entrega CP2](cp2/docs/entrega.md) |
-| CSVs reais e origem das sessões | [Dados reais](cp2/data/real/) · [diário](cp2/data/real/diario-coleta.md) |
-| Treino e teste enviados ao Edge Impulse | [Dataset preparado](cp2/data/real/edge-impulse-v1/) |
-| Código da ESP32 | [carrinho.ino](cp2/firmware/carrinho/carrinho.ino) |
-| Biblioteca oficial e versões | [Modelos](cp2/model/README.md) |
-| Prints, métricas e testes físicos | [Campanha real](cp2/evidence/real-training-v1/README.md) |
-| Verificação da revisão float32 | [Revisão atual](cp2/evidence/navigation-float32-v4/README.md) |
-| Ligações e alimentação | [Hardware](cp2/docs/hardware.md) · [guia visual](cp2/docs/montagem.html) |
+| João Pedro de Albuquerque Oliveira | 551579 |
+| Pedro Augusto Carneiro Barone Bomfim | 99781 |
+| Matheus Augusto Santos Rego | 551466 |
 
-## Compilar e gravar
+## Objetivo
 
-Requer Arduino CLI, core ESP32 e, para as ferramentas de coleta, Python com
-`pip install -r requirements.txt`. No PowerShell, na raiz do repositório:
+Carrinho-robô autônomo com **ESP32**, **ponte H L298N**, **dois motores DC TT**
+e **sensor ultrassônico HC-SR04**, alimentado por bateria, que anda sozinho e
+evita colisões frontais. A decisão de movimento combina a distância medida
+com um modelo **TinyML** (Edge Impulse) treinado com dados reais do próprio
+sensor e executado na ESP32.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File cp2/tools/build.ps1 -Mode inference -Model real
-arduino-cli upload --fqbn esp32:esp32:esp32 --port COM4 --input-dir build/tinyml-real cp2/firmware/carrinho
+<img src="media/fotos/carrinho-final-topo.jpg" alt="Carrinho finalizado visto de cima" width="420">
+
+## Principais funcionalidades
+
+- **Locomoção:** frente, ré e giro no próprio eixo (tração diferencial) com velocidade por PWM.
+- **Bateria:** 4 pilhas AA nos motores; lógica em 5 V por powerbank USB. Funciona sem PC.
+- **Partida autônoma:** arma sozinho 5 s após ligar.
+- **Sensor integrado:** reduz a velocidade entre 40 e 20 cm; a 20 cm para, dá ré e gira à direita.
+- **TinyML:** classifica `livre`, `aproximando` e `bloqueado` a cada ~1 s (88,89% no teste reservado).
+- **Comunicação:** telemetria Wi-Fi (`GET /state` em JSON) e comandos `S` (parar) / `A` (rearmar) pela serial.
+- **Segurança:** leitura inválida, erro de inferência ou confiança inválida param os motores.
+
+## Uso rápido
+
+1. Pilhas no suporte e ESP32 no powerbank.
+2. Carrinho no chão com o sensor livre; após 5 s ele começa a andar.
+3. `S` no Monitor Serial (115200 baud) para; `A` rearma.
+
+Gravação e detalhes: [instruções de uso](docs/06-evidencias-uso.md#instruções-de-uso).
+
+## Documentação
+
+| Tema | Documento |
+| --- | --- |
+| Requisitos, esboços, MVP, backlog, planejamento, decisões e evolução | [docs/01-requisitos-planejamento.md](docs/01-requisitos-planejamento.md) |
+| Chassi, adaptações e carenagem | [docs/02-projeto-mecanico.md](docs/02-projeto-mecanico.md) |
+| Componentes, alimentação, sensor, comunicação, diagrama e fotos | [docs/03-hardware-eletronica.md](docs/03-hardware-eletronica.md) |
+| Funcionamento do código: motores, comunicação e sensor | [docs/04-software.md](docs/04-software.md) |
+| Testes, problemas, correções e resultado | [docs/05-testes-resultados.md](docs/05-testes-resultados.md) |
+| Fotos, vídeo, demonstrações e instruções | [docs/06-evidencias-uso.md](docs/06-evidencias-uso.md) |
+| Modelo TinyML (dataset, treino, métricas) | [cp2/docs/entrega.md](cp2/docs/entrega.md) · [Edge Impulse público](https://studio.edgeimpulse.com/public/1140184/live) |
+
+## Organização do repositório
+
+```text
+.
+├── README.md              ← este arquivo
+├── docs/                  ← documentação da entrega (requisitos → evidências)
+├── media/
+│   ├── video_carrinho.mp4 ← vídeo do carrinho funcionando
+│   └── fotos/             ← fotos do carrinho finalizado
+├── cp1/                   ← MVP: firmware por limiar de distância + testes
+├── cp2/
+│   ├── firmware/carrinho/ ← firmware final (sensor, TinyML, navegação, motores, Wi-Fi)
+│   ├── firmware/teste_*/  ← sketches de teste de bancada
+│   ├── model/             ← biblioteca Arduino exportada do Edge Impulse
+│   ├── data/              ← CSVs reais do HC-SR04 e diário de coleta
+│   ├── docs/              ← hardware, montagem, coleta, treino e navegação
+│   ├── evidence/          ← logs, prints e registros de testes
+│   ├── tests/ · tools/    ← testes automatizados e scripts de build/coleta
+│   └── wokwi/             ← simulação e esboço de montagem
+└── knowledge_base/        ← atividade anterior de LDR (independente do carrinho)
 ```
 
-Troque `COM4` pela porta da placa. No Arduino IDE, instale o [ZIP float32](cp2/model/edge-impulse-arduino-real-v1-float32.zip), abra `cp2/firmware/carrinho/carrinho.ino` e selecione ESP32 Dev Module. Para coletar, use `build.ps1 -Mode collection`; esse modo não aciona motores. O firmware funciona sem PC ou Wi-Fi, desde que a alimentação seja adequada.
+## Mapa da avaliação
 
-## Evolução preservada
-
-- [CP1](cp1/README.md): referência por limiar reconstruída para comparação; não é um arquivo recuperado do CP1 original.
-- CP2 inicial: [dados/modelo sintéticos e Wokwi](cp2/evidence/README.md), mantidos como etapa de desenvolvimento.
-- CP2 real: coleta física, projeto Edge Impulse **1140184**, treinamento, testes, integração e navegação. O histórico Git registra essas etapas sem substituir o CP1.
-
-A atividade de LDR em `knowledge_base/` é independente deste carrinho.
+| Critério | Onde conferir |
+| --- | --- |
+| README e apresentação | Este arquivo |
+| Requisitos, planejamento e evolução | [01](docs/01-requisitos-planejamento.md) · histórico de commits |
+| Projeto mecânico e fabricação | [02](docs/02-projeto-mecanico.md) |
+| Hardware e eletrônica | [03](docs/03-hardware-eletronica.md) · [cp2/docs/hardware.md](cp2/docs/hardware.md) |
+| Software | [04](docs/04-software.md) · [cp2/firmware/carrinho/](cp2/firmware/carrinho/) |
+| Testes e resultados | [05](docs/05-testes-resultados.md) · [cp2/evidence/](cp2/evidence/) |
+| Evidências finais | [06](docs/06-evidencias-uso.md) · [vídeo](media/video_carrinho.mp4) |

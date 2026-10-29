@@ -97,7 +97,7 @@ A inferência tem efeito real sobre avanço e velocidade, além dessa proteção
 Leitura inválida para. `S` desarma; `A` rearma. O sensor só observa à frente;
 a ré e o giro são temporizados, sem garantia de ângulo ou saída de cantos.
 Pinos, alimentação e reprodução: [hardware](hardware.md),
-[navegação e instalação](NAVEGACAO_AUTONOMA.md) e [comandos de build](../../README.md#compilar-e-gravar).
+[navegação e instalação](NAVEGACAO_AUTONOMA.md) e [comandos de build](../../docs/04-software.md#compilar-e-gravar).
 
 ## 4. O que foi verificado
 
@@ -119,7 +119,7 @@ nesta atualização de documentação.
 os testes de bancada anteriores não comprovam navegação no chão dessa versão.
 O grupo também observou queda das pilhas de 5,5 V para 3,8 V sob carga,
 impedindo partida consistente; é uma limitação de alimentação a resolver para
-a demonstração. O vídeo será acrescentado pelo grupo.
+a demonstração. O vídeo final está em [media/video_carrinho.mp4](../../media/video_carrinho.mp4).
 
 ## 5. Evolução e entrega
 
@@ -146,4 +146,4 @@ vídeo em **14/10** e apresentação presencial em **21/10**.
 | Pedro Augusto Carneiro Barone Bomfim | 99781 |
 | Matheus Augusto Santos Rego | 551466 |
 
-**Vídeo da demonstração:** pendente — o grupo adicionará o link aqui.
+**Vídeo da demonstração:** [media/video_carrinho.mp4](../../media/video_carrinho.mp4).

@@ -15,3 +15,6 @@ cp2/model/library/
 *.a
 knowledge_base/parte1/wokwi/captura/sketch/build/
 cp2/wokwi/.runs/
+
+# Video original em 4K (669 MB); a versao versionada fica em media/
+/video_carrinho.mp4
