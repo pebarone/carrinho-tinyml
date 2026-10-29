@@ -1,6 +1,12 @@
 # Carrinho TinyML — CP1 → CP2
 https://github.com/pebarone/cp2-carrinho-tinyml/blob/main/WhatsApp%20Video%202026-10-21%20at%2020.43.20.mp4
 
+# Integrantes
+
+- João Pedro de Albuquerque Oliveira RM: 551579
+- Pedro Augusto Carneiro Barone Bomfim RM:99781
+- Matheus Augusto Santos Rego RM:551466
+
 Carrinho com **ESP32 DevKitC V4, HC-SR04, ponte L298N e dois motores TT**.
 No CP2, dados reais do sensor treinam um modelo que interfere no movimento.
 
