@@ -1,6 +1,9 @@
 # Carrinho-robô TinyML
 
-<a href="media/video_carrinho.mp4"><img src="media/preview_carrinho.gif" alt="Carrinho desviando de obstáculo" width="270"></a>
+
+
+https://github.com/user-attachments/assets/6eea26b3-4648-4353-8227-3b5edaa3141e
+
 
 ▶️ **[Vídeo completo do carrinho funcionando (45 s, com áudio)](media/video_carrinho.mp4)**
 
