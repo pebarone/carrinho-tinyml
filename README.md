@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 TinyML Obstacle-Avoiding Robot Car
+# TinyML Obstacle-Avoiding Robot Car
 
 **Autonomous ESP32 robot car that avoids collisions by combining an ultrasonic sensor with an on-device Edge Impulse TinyML model.**
 
@@ -13,13 +13,13 @@
 
 https://github.com/user-attachments/assets/6eea26b3-4648-4353-8227-3b5edaa3141e
 
-▶️ **[Full demo video (45 s, with audio)](media/video_carrinho.mp4)**
+**[Full demo video (45 s, with audio)](media/video_carrinho.mp4)**
 
 </div>
 
 ---
 
-## ✨ Overview
+## Overview
 
 A battery-powered robot car built with an **ESP32**, an **L298N H-bridge**, **two TT DC motors** and an **HC-SR04 ultrasonic sensor**. It drives on its own and avoids frontal collisions. Each movement decision combines the measured distance with a **TinyML classifier** trained in **Edge Impulse** on real readings from the car's own sensor and executed directly on the ESP32.
 
@@ -28,18 +28,18 @@ A battery-powered robot car built with an **ESP32**, an **L298N H-bridge**, **tw
 <img src="media/fotos/carrinho-final-diagonal.jpg" alt="Finished car, diagonal view" width="45%">
 </div>
 
-## 🚀 Features
+## Features
 
-- 🛞 **Locomotion:** forward, reverse and in-place spin (differential drive) with PWM speed control
-- 🔋 **Standalone power:** 4×AA for the motors, 5 V logic from a USB power bank — no PC needed
+- **Locomotion:** forward, reverse and in-place spin (differential drive) with PWM speed control
+- **Standalone power:** 4×AA for the motors, 5 V logic from a USB power bank — no PC needed
 - ⏱️ **Autonomous start:** arms itself 5 s after power-on
-- 📏 **Sensor-driven navigation:** slows down between 40 and 20 cm; at 20 cm it stops, backs up and turns right
-- 🧠 **TinyML:** classifies `livre` (clear), `aproximando` (approaching) and `bloqueado` (blocked) about once per second (**88.89%** on the held-out test set)
-- 📶 **Telemetry & control:** Wi-Fi `GET /state` JSON endpoint and serial commands `S` (stop) / `A` (re-arm)
-- 🛡️ **Fail-safe:** invalid readings, inference errors or invalid confidence stop the motors
-- 🧪 **Tested pipeline:** real and synthetic datasets, Python tests for dataset and model exports, policy compile tests and a Wokwi simulation
+- **Sensor-driven navigation:** slows down between 40 and 20 cm; at 20 cm it stops, backs up and turns right
+- **TinyML:** classifies `livre` (clear), `aproximando` (approaching) and `bloqueado` (blocked) about once per second (**88.89%** on the held-out test set)
+- **Telemetry & control:** Wi-Fi `GET /state` JSON endpoint and serial commands `S` (stop) / `A` (re-arm)
+- **Fail-safe:** invalid readings, inference errors or invalid confidence stop the motors
+- **Tested pipeline:** real and synthetic datasets, Python tests for dataset and model exports, policy compile tests and a Wokwi simulation
 
-## 🧱 Hardware & Tech
+## Hardware & Tech
 
 | Area | Details |
 | --- | --- |
@@ -50,7 +50,7 @@ A battery-powered robot car built with an **ESP32**, an **L298N H-bridge**, **tw
 | Firmware | Arduino C++ (motors, ultrasonic, inference, navigation policy, Wi-Fi status) |
 | Tooling | Arduino CLI, PowerShell build/simulate scripts, Python dataset tools, Wokwi |
 
-## ⚡ Quick Start
+## Quick Start
 
 1. Put the AA batteries in the holder and plug the ESP32 into the power bank.
 2. Place the car on the floor with the sensor unobstructed; after 5 s it starts driving.
@@ -65,7 +65,7 @@ arduino-cli upload --fqbn esp32:esp32:esp32 --port COM4 --input-dir build/tinyml
 
 In the Arduino IDE, install `cp2/model/edge-impulse-arduino-real-v1-float32.zip` as a library, open `cp2/firmware/carrinho/carrinho.ino`, select **ESP32 Dev Module** and upload. For Wi-Fi telemetry, copy `wifi_config.example.h` to `wifi_config.h`, fill in SSID/password, re-flash and open `/state` on the IP printed on the serial port.
 
-## 🗂️ Repository Layout
+## Repository Layout
 
 ```text
 .
@@ -84,7 +84,7 @@ In the Arduino IDE, install `cp2/model/edge-impulse-arduino-real-v1-float32.zip`
 └── knowledge_base/        # earlier LDR activity (independent from the car)
 ```
 
-## 📚 Documentation (Portuguese)
+## Documentation (Portuguese)
 
 | Topic | Document |
 | --- | --- |
@@ -97,7 +97,7 @@ In the Arduino IDE, install `cp2/model/edge-impulse-arduino-real-v1-float32.zip`
 | TinyML model (dataset, training, metrics) | [cp2/docs/entrega.md](cp2/docs/entrega.md) |
 
 <details>
-<summary><b>📋 Evaluation map</b></summary>
+<summary><b>Evaluation map</b></summary>
 
 | Criterion | Where to check |
 | --- | --- |
@@ -111,7 +111,7 @@ In the Arduino IDE, install `cp2/model/edge-impulse-arduino-real-v1-float32.zip`
 
 </details>
 
-## 🎓 Academic Context
+## Academic Context
 
 Built for the **Project-based Maker Lab** course in the Software Engineering program at **[FIAP](https://www.fiap.com.br/)**.
 
